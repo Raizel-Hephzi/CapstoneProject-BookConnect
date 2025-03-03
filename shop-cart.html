@@ -296,7 +296,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+									<tr class="cart-item">
 										<td class="product-item-img"><img src="images/books/grid/book3.jpg" alt=""></td>
 										<td class="product-item-name">Battle Drive</td>
 										<td class="product-item-price">₵28.00</td>
@@ -306,9 +306,22 @@
 											</div>
 										</td>
 										<td class="product-item-totle">₵28.00</td>
-										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
+										<td class="product-item-close">
+											<a href="javascript:void(0);" class="ti-close" onclick="removeCartItem(this)"></a>
+										</td>
 									</tr>
-									<tr>
+									
+									<!-- JavaScript Code -->
+									<script>
+										function removeCartItem(element) {
+											var cartItem = element.closest(".cart-item");
+											if (cartItem) {
+												cartItem.remove(); // Removes the selected cart row
+											}
+										}
+									</script>
+									
+									<tr class="cart-item">
 										<td class="product-item-img"><img src="images/books/grid/book2.jpg" alt=""></td>
 										<td class="product-item-name">Home</td>
 										<td class="product-item-price">₵28.00</td>
@@ -318,9 +331,9 @@
 											</div>
 										</td>
 										<td class="product-item-totle">₵28.00</td>
-										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
+										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close" onclick="removeCartItem(this)"></a></td>
 									</tr>
-									<tr>
+									<tr class="cart-item">
 										<td class="product-item-img"><img src="images/books/grid/book4.jpg" alt=""></td>
 										<td class="product-item-name">Such A Fun Age</td>
 										<td class="product-item-price">₵28.00</td>
@@ -330,9 +343,9 @@
 											</div>
 										</td>
 										<td class="product-item-totle">₵28.00</td>
-										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
+										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close" onclick="removeCartItem(this)"></a></td>
 									</tr>
-									<tr>
+									<tr class="cart-item">
 										<td class="product-item-img"><img src="images/books/grid/book1.jpg" alt=""></td>
 										<td class="product-item-name">Real Life</td>
 										<td class="product-item-price">₵28.00</td>
@@ -342,9 +355,9 @@
 											</div>
 										</td>
 										<td class="product-item-totle">₵28.00</td>
-										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
+										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close" onclick="removeCartItem(this)"></a></td>
 									</tr>
-									<tr>
+									<tr class="cart-item">
 										<td class="product-item-img"><img src="images/books/grid/book6.jpg" alt=""></td>
 										<td class="product-item-name">Cat Adventure</td>
 										<td class="product-item-price">₵28.00</td>
@@ -354,10 +367,10 @@
 											</div>
 										</td>
 										<td class="product-item-totle">₵28.00</td>
-										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
+										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close" onclick="removeCartItem(this)"></a></td>
 									</tr>
 									
-									<tr>
+									<tr class="cart-item">
 										<td class="product-item-img"><img src="images/books/grid/book5.jpg" alt=""></td>
 										<td class="product-item-name">Take Out Tango</td>
 										<td class="product-item-price">₵28.00</td>
@@ -368,13 +381,13 @@
 										</td>
 										<td class="product-item-totle">₵28.00</td>
 										
-										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
+										<td class="product-item-close"><a href="javascript:void(0);" class="ti-close" onclick="removeCartItem(this)"></a></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
-					
+
 				</div>
 				<div class="row">
 					<div class="col-lg-6">
@@ -586,7 +599,7 @@
 						<p class="copyright-text">Bookland Book Store Ecommerce Website - © <span class="current-year">2024</span> All Rights Reserved</p>
 					</div>
 					<div class="col-lg-6 col-md-12 text-end"> 
-						<p>Made with <span class="heart"></span> by <a href="https://dexignzone.com/">DexignZone</a></p>
+						<p>Made with <span class="heart"></span> by <a href="#">DexignZone</a></p>
 					</div>
 				</div>
 			</div>
