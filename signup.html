@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Connect - Swap Books with Fellow Students</title>
+  <title>Book Connect - Sign Up</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 </head>
@@ -24,48 +24,8 @@
           <p class="tagline">Exchange knowledge, one book at a time</p>
         </div>
 
-        <!-- Sign In Form -->
-        <div class="form-container signin-container active">
-          <h2>Sign In</h2>
-          <div class="user-type-toggle">
-            <button class="toggle-btn active" data-type="user">Student</button>
-            <button class="toggle-btn" data-type="admin">Admin</button>
-          </div>
-          <form id="signin-form">
-            <div class="input-field">
-              <input type="email" id="signin-email" required>
-              <label for="signin-email">Email</label>
-              <div class="input-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              </div>
-            </div>
-            <div class="input-field">
-              <input type="password" id="signin-password" required>
-              <label for="signin-password">Password</label>
-              <div class="input-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-              </div>
-              <button type="button" class="toggle-password">
-                <svg class="eye-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <svg class="eye-closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
-              </button>
-            </div>
-            <div class="remember-forgot">
-              <div class="remember-me">
-                <input type="checkbox" id="remember">
-                <label for="remember">Remember me</label>
-              </div>
-              <a href="#" class="forgot-password">Forgot password?</a>
-            </div>
-            <button type="submit" class="btn signin-btn">Sign In</button>
-            <div class="form-footer">
-              <p>Don't have an account? <a href="signup.html" class="toggle-form-link" data-form="signup">Sign Up</a></p>
-            </div>
-          </form>
-        </div>
-
         <!-- Sign Up Form -->
-        <div class="form-container signup-container">
+        <div class="form-container signup-container active">
           <h2>Create Account</h2>
           <form id="signup-form">
             <div class="input-field">
@@ -106,14 +66,13 @@
             </div>
             <button type="submit" class="btn signup-btn">Sign Up</button>
             <div class="form-footer">
-              <p>Already have an account? <a href="#" class="toggle-form-link" data-form="signin">Sign In</a></p>
+              <p>Already have an account? <a href="shop-login.html" class="toggle-form-link">Sign In</a></p>
             </div>
           </form>
         </div>
+      </div>
+    </div>
+  </div>
 
-       
-
-  <script src="script.js"></script>
 </body>
 </html>
-

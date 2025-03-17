@@ -3,23 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Connect - Book Management</title>
-
+    <link rel="icon" type="image/x-icon" href="images/favicon.png"/>
+    
+    <title>BookConnect Book Store Ecommerce Website</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="icons/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">Book Connect Logo</div>
-            <button class="logout-button">Log Out</button>
+    <!-- Header -->
+    <header class="site-header mo-left header style-1">
+        <div class="header-info-bar">
+            <div class="container clearfix">
+                <div class="logo-header logo-dark">
+                    <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sticky-header main-bar-wraper navbar-expand-lg">
+            <div class="main-bar clearfix">
+                <div class="container clearfix">
+                    <div class="logo-header logo-dark">
+                        <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                    </div>
+                    
+                    <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                        <form class="search-input">
+                            <div class="input-group">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
+                                <button class="btn" type="button"><i class="flaticon-loupe"></i></button>
+                            </div>
+                        </form>
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="books-grid-view.html">Browse Books</a></li>
+                            <li><a href="about-us.html">About</a></li>
+                            <li><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+
+                        <li class="nav-item dropdown profile-dropdown ms-4">
+                            <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="images/profile1.jpg" alt="Profile Image" style="width: 40px; height: 40px; border-radius: 50%;">
+                                <div class="profile-info">
+                                    <h6 class="title">Brian</h6>
+                                    <span>info@gmail.com</span>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu py-0 dropdown-menu-end">
+                                <div class="dropdown-header">
+                                    <h6 class="m-0">Brian</h6>
+                                    <span>info@gmail.com</span>
+                                </div>
+                                <div class="dropdown-body">
+                                    <a href="my-profile.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000">
+                                                <path d="M0 0h24v24H0V0z" fill="none"/>
+                                                <path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                            <span class="ms-2">Profile</span>
+                                        </div>
+                                    </a>
+                                    <a href="logout.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000">
+                                                <path d="M0 0h24v24H0V0z" fill="none"/>
+                                                <path d="M10 17l5-5-5-5v10zm6-11h4v2h-4V6zm-6 13H6v-2h4v2z"/>
+                                            </svg>
+                                            <span class="ms-2">Log Out</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
+
     <main>
         <div class="search-bar">
             <input type="text" placeholder="Search for books...">
             <button>Search</button>
         </div>
         <section class="book-management">
-            <!-- My Books Section -->
             <div class="section">
                 <h2>My Books</h2>
                 <h3>Possessed Books</h3>
@@ -48,7 +129,6 @@
                     </tbody>
                 </table>
             </div>
-            <!-- Books I've Shared Section -->
             <div class="section">
                 <h2>Books I've Shared</h2>
                 <h3>Lent Books</h3>
@@ -68,7 +148,6 @@
                     </tbody>
                 </table>
             </div>
-            <!-- Books I've Exchanged Section -->
             <div class="section">
                 <h2>Books I've Exchanged</h2>
                 <h3>Exchanged Books</h3>
@@ -112,151 +191,203 @@
             </div>
         </section>
     </main>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="vendor/counter/waypoints-min.js"></script>
+    <script src="vendor/counter/counterup.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="js/dz.carousel.js"></script>
+    <script src="js/dz.ajax.js"></script>
+    <script src="js/custom.js"></script>
+
+    <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .logo-header img {
+            width: 150px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .search-bar {
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #eaa45e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #a57713;
+        }
+
+        .book-management {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        img {
+            width: 50px;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #229954;
+        }
+
+        .delete-button {
+            background-color: #e74c3c;
+        }
+
+        .delete-button:hover {
+            background-color: #c0392b;
+        }
+
+        .profile-dropdown {
+            margin-left: 20px;
+        }
+
+        .profile-dropdown .nav-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-dropdown .profile-info {
+            margin-left: 10px;
+        }
+
+        .dropdown-menu-end {
+            right: 0;
+            left: auto;
+        }
+
+        .dropdown-header {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown-body {
+            padding: 10px;
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .ai-icon {
+            margin-right: 10px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const deleteButtons = document.querySelectorAll('.delete-button');
+            const exchangeButtons = document.querySelectorAll('.exchange-button');
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    alert('Delete functionality coming soon!');
+                });
+            });
+
+            exchangeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    alert('Exchange functionality coming soon!');
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileDropdown = document.querySelector('.profile-dropdown');
+            const profileDropdownToggle = profileDropdown.querySelector('.nav-link');
+
+            profileDropdownToggle.addEventListener('click', () => {
+                profileDropdown.classList.toggle('show');
+            });
+        });
+    </script>
 </body>
-<style>
-    /* styles.css */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-}
-
-header {
-  background-color: #2c3e50;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logout-button {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.logout-button:hover {
-  background-color: #c0392b;
-}
-
-.search-bar {
-  padding: 20px;
-  text-align: center;
-  background-color: white;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.search-bar input {
-  padding: 10px;
-  width: 300px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.search-bar button {
-  padding: 10px 20px;
-  background-color: #2980b9;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.search-bar button:hover {
-  background-color: #21618c;
-}
-
-.book-management {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.section {
-  margin-bottom: 30px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-h2, h3 {
-  color: #333;
-  margin-bottom: 10px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-table, th, td {
-  border: 1px solid #ddd;
-}
-
-th, td {
-  padding: 10px;
-  text-align: left;
-}
-
-img {
-  width: 50px;
-  height: auto;
-  border-radius: 4px;
-}
-
-button {
-  padding: 8px 12px;
-  background-color: #27ae60;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #229954;
-}
-
-.delete-button {
-  background-color: #e74c3c;
-}
-
-.delete-button:hover {
-  background-color: #c0392b;
-}
-
-
-</style>
-<script>
-    // script.js
-document.addEventListener('DOMContentLoaded', () => {
-    const deleteButtons = document.querySelectorAll('.delete-button');
-    const exchangeButtons = document.querySelectorAll('.exchange-button');
-
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            alert('Delete functionality coming soon!');
-        });
-    });
-
-    exchangeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            alert('Exchange functionality coming soon!');
-        });
-    });
-});
-
-</script>
 </html>

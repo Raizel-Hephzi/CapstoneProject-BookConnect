@@ -23,7 +23,6 @@
                     <h3>Dashboard</h3>
                     <ul>
                         <li><a href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Overview</a></li>
-                        <li><a href="admin-analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
                     </ul>
                 </div>
                 
@@ -31,7 +30,7 @@
                     <h3>User Management</h3>
                     <ul>
                         <li class="active"><a href="pending-users.html"><i class="fas fa-user-clock"></i> Pending Users</a></li>
-                        <li><a href="approve-users.html"><i class="fas fa-user-check"></i> Active Users</a></li>
+                        <li><a href="approve-users.html"><i class="fas fa-user-check"></i> Approved Users</a></li>
                         <li><a href="admin-history.html"><i class="fas fa-history"></i> User History</a></li>
                     </ul>
                 </div>
@@ -304,26 +303,84 @@
     </div>
 
     <!-- User Details Modal -->
-    <div id="user-details-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>User Details</h2>
-                <button class="close-modal">
-                    <i class="fas fa-times"></i>
-                </button>
+    <!-- User Details Modal -->
+<div id="user-details-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>User Details</h2>
+            <button class="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="user-profile">
+                <img src="images/user1.jpg" alt="User" class="profile-image" id="modal-user-img">
+                <div class="profile-info">
+                    <h3 id="modal-user-name">John Doe</h3>
+                    <p id="modal-user-email">johndoe@example.com</p>
+                    <p id="modal-user-location">
+                        <i class="fas fa-map-marker-alt"></i> New York, USA
+                    </p>
+                </div>
             </div>
-            <div class="modal-body">
-                <div class="user-profile">
-                    <img src="images/user1.jpg" alt="User" class="profile-image" id="modal-user-img">
-                    <div class="profile-info">
-                        <h3 id="modal-user-name">John Doe</h3>
-                        <p id="modal-user-email">johndoe@example.com</p>
-                        <p id="modal-user-location">
-                            <i class="fas fa-map-marker-alt"></i> New York, USA
-                        </p>
+            
+            <div class="user-details">
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <span class="detail-label">User ID</span>
+                        <span class="detail-value" id="modal-user-id">001</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Registration Date</span>
+                        <span class="detail-value" id="modal-reg-date">Mar 15, 2025</span>
                     </div>
                 </div>
-                
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <span class="detail-label">Phone</span>
+                        <span class="detail-value" id="modal-user-phone">+1 (555) 123-4567</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">IP Address</span>
+                        <span class="detail-value" id="modal-user-ip">192.168.1.1</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="user-bio">
+                <h4>About</h4>
+                <p id="modal-user-bio">I'm an avid reader with a passion for science fiction and fantasy novels...</p>
+            </div>
+            
+            <div class="user-interests">
+                <h4>Interests</h4>
+                <div class="interest-tags" id="modal-user-interests">
+                    <span class="interest-tag">Science Fiction</span>
+                    <span class="interest-tag">Fantasy</span>
+                    <span class="interest-tag">Mystery</span>
+                    <span class="interest-tag">Biography</span>
+                </div>
+            </div>
+            
+            <!-- New Section for Uploaded File -->
+            <div class="uploaded-file">
+                <h4>Uploaded File</h4>
+                <p id="modal-uploaded-file-container">
+                    <a href="" target="_blank" id="modal-uploaded-file">View Uploaded File</a>
+                </p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline" id="modal-close-btn">Close</button>
+            <button class="btn btn-danger" id="modal-reject-btn">
+                <i class="fas fa-times"></i> Reject
+            </button>
+            <button class="btn btn-primary" id="modal-approve-btn">
+                <i class="fas fa-check"></i> Approve
+            </button>
+        </div>
+    </div>
+</div>
                 <div class="user-details">
                     <div class="detail-row">
                         <div class="detail-item">

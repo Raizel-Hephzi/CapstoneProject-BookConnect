@@ -59,25 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Admin registration link
-  const adminSignupLink = document.createElement("a")
-  adminSignupLink.href = "#"
-  adminSignupLink.textContent = "Register as Admin"
-  adminSignupLink.classList.add("admin-signup-link")
-  adminSignupLink.style.display = "block"
-  adminSignupLink.style.textAlign = "center"
-  adminSignupLink.style.marginTop = "1rem"
-  adminSignupLink.style.color = "var(--primary-color)"
-
-  document.querySelector(".signup-container .form-footer").appendChild(adminSignupLink)
-
-  adminSignupLink.addEventListener("click", (e) => {
-    e.preventDefault()
-    formContainers.forEach((container) => {
-      container.classList.remove("active")
-    })
-    document.querySelector(".admin-signup-container").classList.add("active")
-  })
+  
 
   // Form validation
   const forms = document.querySelectorAll("form")
@@ -158,9 +140,9 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
               // Redirect based on user type
               if (isAdmin) {
-                window.location.href = "/admin-dashboard.html"
+                window.location.href = "admin-dashboard.html"
               } else {
-                window.location.href = "/index.html"
+                window.location.href = "index.html"
               }
             }, 2000)
           } else if (formType.includes("admin-signup")) {
@@ -174,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
               // Show success message and redirect to admin dashboard
               alert("Admin registration successful! Redirecting to admin dashboard...")
-              window.location.href = "/admin-dashboard.html"
+              window.location.href = "admin-dashboard.html"
             }, 3000)
           } else {
             // Student registration

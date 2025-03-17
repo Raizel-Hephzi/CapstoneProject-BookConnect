@@ -4,118 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="images/favicon.png"/>
-	
-	<!-- PAGE TITLE HERE -->
-	<title>BookConnect Book Store Ecommerce Website</title>
-	
-	<!-- MOBILE SPECIFIC -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!-- STYLESHEETS -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="icons/fontawesome/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/swiper/swiper-bundle.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css">	
-	<!-- GOOGLE FONTS-->
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="path-to-your-flaticon.css">
-    
+
+    <!-- PAGE TITLE HERE -->
+    <title>BookConnect Book Store Ecommerce Website</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="icons/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css">	
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path-to-your-flaticon.css">
+
 </head>
 <body>
-    <header>
-      <div class="navbar">
-        <!-- Website Logo -->
-        <div class="logo-header logo-dark">
-  <a href="index.html"><img src="images/logo.png" alt="logo"></a>
-</div> 
-<div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
-  <div class="logo-header logo-dark">
-    <a href="index.html"><img src="images/logo.png" alt=""></a>
-  </div>
-  <form class="search-input">
-    <div class="input-group">
-      <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
-      <button class="btn" type="button"><i class="flaticon-loupe"></i></button>
-    </div>
-  </form>
-  <ul class="nav navbar-nav">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="books-grid-view.html">Browse Books </a></li>
-    <li><a href="about-us.html">About </a></li>
-    <li><a href="contact-us.html">Contact Us</a></li>
-  </ul>
-  </ul>
-  <div class="dz-social-icon">
-    <ul>
-      <li><a class="fab fa-facebook-f" target="_blank" href="#"></a></li>
-      <li><a class="fab fa-twitter" target="_blank" href="https://twitter.com/dexignzones"></a></li>
-      <li><a class="fab fa-linkedin-in" target="_blank" href="https://www.linkedin.com/showcase/3686700/admin/"></a></li>
-      <li><a class="fab fa-instagram" target="_blank" href="https://www.instagram.com/website_templates__/"></a></li>
-    </ul>
-  </div>
-</div>
+ <!-- Header -->
+<header class="site-header mo-left header style-1">
+    <!-- Main Header -->
+    <div class="header-info-bar">
+        <div class="container clearfix">
+            <!-- Website Logo -->
+            <div class="logo-header logo-dark">
+                <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+            </div>
         </div>
-      </div>
-    </header>
-    <main>
-        <h1>Book Upload</h1>
-        <form class="book-upload-form">
-            <fieldset>
-                <legend>Book Details</legend>
-                <label for="book-title">Book Title:</label>
-                <input type="text" id="book-title" name="book-title" required>
-                
-                <label for="book-author">Book Author:</label>
-                <input type="text" id="book-author" name="book-author" required>
-                
-                <label for="book-description">Book Description:</label>
-                <textarea id="book-description" name="book-description" rows="4" required></textarea>
-            </fieldset>
-            <fieldset>
-                <legend>Book Category</legend>
-                <label for="category">Select Category:</label>
-                <select id="category" name="category">
-                    <option value="fiction">Fiction</option>
-                    <option value="non-fiction">Non-Fiction</option>
-                    <option value="science">Science</option>
-                    <option value="history">History</option>
-                </select>
-            </fieldset>
-            <fieldset>
-                <legend>Book Type</legend>
-                <label for="type">Select Book Type:</label>
-                <select id="type" name="type">
-                    <option value="pdf">PDF(soft copy)</option>
-                    <option value="epub">Hard copy</option>
-                </select>
-            </fieldset>
-            <fieldset>
-                <legend>Image Upload</legend>
-                <input type="file" id="image-upload" name="image-upload" accept="image/*">
-            </fieldset>
-            <fieldset>
-                <legend>File Upload</legend>
-                <input type="file" id="file-upload" name="file-upload" accept=".pdf,.epub,.mp3">
-            </fieldset>
-            <button type="submit">Upload Book</button>
-        </form>
-        <footer>
-          <div class="footer-links">
+    </div>
+    <!-- Main Header -->
+    <div class="sticky-header main-bar-wraper navbar-expand-lg">
+        <div class="main-bar clearfix">
+            <div class="container clearfix">
+                <!-- Website Logo -->
+                <div class="logo-header logo-dark">
+                    <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+
+                <!-- Nav Toggle Button -->
+                <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Main Nav -->
+                <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                    <form class="search-input">
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
+                            <button class="btn" type="button"><i class="flaticon-loupe"></i></button>
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books-grid-view.html">Browse Books </a></li>
+                        <li><a href="about-us.html">About </a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li class="nav-item dropdown profile-dropdown ms-4">
+                            <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="images/profile1.jpg" alt="Profile Image" style="width: 40px; height: 40px; border-radius: 50%;">
+                                <div class="profile-info">
+                                    <h6 class="title">Brian</h6>
+                                    <span>info@gmail.com</span>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu py-0 dropdown-menu-end">
+                                <div class="dropdown-header">
+                                    <h6 class="m-0">Brian</h6>
+                                    <span>info@gmail.com</span>
+                                </div>
+                                <div class="dropdown-body">
+                                    <a href="my-profile.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
+                                        <div>
+                                            <span class="ms-2">Profile</span>
+                                        </div>
+                                    </a>
+                                    <a href="logout.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
+                                        <div>
+                                            <span class="ms-2">Log Out</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="dz-social-icon">
+                        <ul>
+                            <li><a class="fab fa-facebook-f" target="_blank" href="#"></a></li>
+                            <li><a class="fab fa-twitter" target="_blank" href="https://twitter.com/dexignzones"></a></li>
+                            <li><a class="fab fa-linkedin-in" target="_blank" href="https://www.linkedin.com/showcase/3686700/admin/"></a></li>
+                            <li><a class="fab fa-instagram" target="_blank" href="https://www.instagram.com/website_templates__/"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Header End -->
+</header>
+<!-- Header End -->
+
+<main>
+    <h1>Book Upload</h1>
+    <form class="book-upload-form">
+        <fieldset>
+            <legend>Book Details</legend>
+            <label for="book-title">Book Title:</label>
+            <input type="text" id="book-title" name="book-title" required>
+            
+            <label for="book-author">Book Author:</label>
+            <input type="text" id="book-author" name="book-author" required>
+            
+            <label for="book-description">Book Description:</label>
+            <textarea id="book-description" name="book-description" rows="4" required></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Book Category</legend>
+            <label for="category">Select Category:</label>
+            <select id="category" name="category">
+                <option value="fiction">Fiction</option>
+                <option value="non-fiction">Non-Fiction</option>
+                <option value="science">Science</option>
+                <option value="history">History</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Book Type</legend>
+            <label for="type">Select Book Type:</label>
+            <select id="type" name="type">
+                <option value="pdf">PDF (soft copy)</option>
+                <option value="epub">Hard copy</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Image Upload</legend>
+            <input type="file" id="image-upload" name="image-upload" accept="image/*">
+        </fieldset>
+        <fieldset>
+            <legend>File Upload</legend>
+            <input type="file" id="file-upload" name="file-upload" accept=".pdf,.epub,.mp3">
+        </fieldset>
+        <button type="submit">Upload Book</button>
+    </form>
+    <footer>
+        <div class="footer-links">
             <a href="Admindashboard.html">Admin Dashboard</a>
             <a href="Adminhistory.html">History</a>
             <a href="Approvedusers.html">Approved Users</a>
             <a href="shop-login.html">Log Out</a>
-          </div>
-        </footer>
-        
-    </main>
-    
-</body>
-<script>
+        </div>
+    </footer>
+</main>
 
+<script>
 // Get the book type dropdown and the file upload field
 const bookTypeDropdown = document.getElementById('type');
 const fileUploadField = document.getElementById('file-upload');
@@ -137,6 +183,7 @@ if (bookTypeDropdown.value === 'epub') {
     fileUploadField.style.display = 'none';
     fileUploadField.previousElementSibling.style.display = 'none';
 }
+</script>
 <script src="js/jquery.min.js"></script><!-- JQUERY MIN JS -->
 <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP MIN JS -->
 <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script><!-- BOOTSTRAP SELECT MIN JS -->
@@ -147,7 +194,6 @@ if (bookTypeDropdown.value === 'epub') {
 <script src="js/dz.carousel.js"></script><!-- DZ CAROUSEL JS -->
 <script src="js/dz.ajax.js"></script><!-- AJAX -->
 <script src="js/custom.js"></script><!-- CUSTOM JS -->
-</script>
 <style>
     /* styles.css */
 body {
@@ -165,38 +211,13 @@ header {
   align-items: center;
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-}
-
-.navbar .logo {
-  font-size: 1.5rem;
-  margin-right: 20px;
-}
-
-.navbar nav a {
-  color: blue;
-  text-decoration: none;
-  margin: 0 20px;
-  padding: 5px 10px; /* Adds padding within each link */
-  font-size: 1rem; /* Adjust the font size if needed */
-}
-
-
-
-.navbar nav a:hover {
-  background-color: #f0f0f0; /* Optional: Highlight link on hover */
-  border-radius: 5px; /* Optional: Add rounded corners on hover */
-}
-
 main {
   padding: 20px;
 }
 
 h1 {
   text-align: center;
-  color:black;
+  color: black;
   margin-bottom: 10px;
 }
 
@@ -251,7 +272,6 @@ input:invalid, textarea:invalid {
   }
 }
 
-
 button {
   background-color: #eaa45e;
   color: white;
@@ -263,7 +283,6 @@ button {
 button:hover {
   background-color: blue;
 }
-
 
 footer {
   background-color: #f1f1f1; /* Light background color for footer */
@@ -288,8 +307,5 @@ footer {
   background-color: #f0f0f0;
   border-radius: 5px;
 }
-
-
-
 </style>
 </html>

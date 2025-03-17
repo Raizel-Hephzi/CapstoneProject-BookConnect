@@ -249,12 +249,17 @@ function setupEventListeners() {
   })
 
   // Modal close buttons
-  const closeModalButtons = document.querySelectorAll(".close-modal")
-  closeModalButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      document.getElementById("history-details-modal").classList.remove("active")
-    })
-  })
+  const closeButtons = document.querySelectorAll(".close-modal");
+closeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+        const modal = this.closest(".modal");
+        closeModal(modal);
+    });
+});
+
+function closeModal(modal) {
+    modal.classList.remove("active");
+}
 
   // Close modal when clicking outside
   window.addEventListener("click", (event) => {

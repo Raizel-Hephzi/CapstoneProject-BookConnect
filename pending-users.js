@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
           bio: "I'm an avid reader with a passion for science fiction and fantasy novels. I'm excited to join BookConnect to exchange books with fellow enthusiasts and discover new authors.",
           interests: ["Science Fiction", "Fantasy", "Mystery", "Biography"],
           img: "images/user1.jpg",
+          uploadedFile: "uploads/file1.pdf" // Add this line for the uploaded file
         },
         "002": {
           name: "Jane Smith",
@@ -86,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
           bio: "Book lover and literature student. I enjoy classic literature and poetry. Looking forward to sharing my collection and discovering new titles.",
           interests: ["Classics", "Poetry", "Romance", "Historical Fiction"],
           img: "images/user2.jpg",
+          uploadedFile: "uploads/file1.pdf" // Add this line for the uploaded file
         },
         "003": {
           name: "Mike Johnson",
@@ -97,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
           bio: "Tech professional and non-fiction enthusiast. I collect books on technology, business, and personal development.",
           interests: ["Non-fiction", "Technology", "Business", "Self-help"],
           img: "images/user3.jpg",
+          uploadedFile: "uploads/file1.pdf" // Add this line for the uploaded file
         },
         "004": {
           name: "Sarah Williams",
@@ -108,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
           bio: "Passionate about children's literature and young adult fiction. I work as a school librarian and love to share reading recommendations.",
           interests: ["Children's Books", "Young Adult", "Educational", "Adventure"],
           img: "images/user4.jpg",
+          uploadedFile: "uploads/file1.pdf" // Add this line for the uploaded file
         },
         "005": {
           name: "David Lee",
@@ -119,40 +123,28 @@ document.addEventListener("DOMContentLoaded", () => {
           bio: "Multilingual reader interested in international literature and translated works. I collect books in English, Japanese, and Korean.",
           interests: ["International", "Translated Works", "Cultural", "Literary Fiction"],
           img: "images/user5.jpg",
+          uploadedFile: "uploads/file1.pdf" // Add this line for the uploaded file
+
+          
         },
       }
-  
-      const user = userData[userId]
-  
+      const user = userData[userId];
+
       if (user) {
-        document.getElementById("modal-user-name").textContent = user.name
-        document.getElementById("modal-user-email").textContent = user.email
-        document.getElementById("modal-user-location").innerHTML =
-          `<i class="fas fa-map-marker-alt"></i> ${user.location}`
-        document.getElementById("modal-user-id").textContent = userId
-        document.getElementById("modal-reg-date").textContent = user.regDate
-        document.getElementById("modal-user-phone").textContent = user.phone
-        document.getElementById("modal-user-ip").textContent = user.ip
-        document.getElementById("modal-user-bio").textContent = user.bio
-        document.getElementById("modal-user-img").src = user.img
-  
-        const interestsContainer = document.getElementById("modal-user-interests")
-        interestsContainer.innerHTML = ""
-        user.interests.forEach((interest) => {
-          const tag = document.createElement("span")
-          tag.className = "interest-tag"
-          tag.textContent = interest
-          interestsContainer.appendChild(tag)
-        })
-  
-        // Set up modal action buttons
-        document.getElementById("modal-approve-btn").setAttribute("data-id", userId)
-        document.getElementById("modal-reject-btn").setAttribute("data-id", userId)
-  
+        console.log("User data found:", user); // Debug log
+        // Populate modal
+        document.getElementById("modal-user-name").textContent = user.name;
+        // ... other data assignments
+        const uploadedFileContainer = document.getElementById("modal-uploaded-file");
+        uploadedFileContainer.href = user.uploadedFile;
+        uploadedFileContainer.textContent = "View Uploaded File";
+
         // Show the modal
-        userDetailsModal.classList.add("active")
-      }
+        userDetailsModal.classList.add("active");
+    } else {
+        console.error("User not found for ID:", userId); // Debug log
     }
+}
   
     // Approve User
     const approveButtons = document.querySelectorAll(".approve")

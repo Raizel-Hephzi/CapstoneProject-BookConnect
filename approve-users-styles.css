@@ -120,30 +120,11 @@
     border: 2px solid var(--primary-color);
   }
   
-  /* Status Badge */
-  .status-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
+ 
   
-  .status-badge.pending {
-    background-color: rgba(245, 158, 11, 0.1);
-    color: var(--pending-color);
-  }
   
-  .status-badge.approved {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: var(--approved-color);
-  }
   
-  .status-badge.rejected {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: var(--rejected-color);
-  }
+  
   
   /* Action Buttons */
   .action-buttons {

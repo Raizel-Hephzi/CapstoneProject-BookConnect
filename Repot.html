@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="images/favicon.png"/>
+  
+  <!-- PAGE TITLE HERE -->
+  <title>Report Issue - BookConnect</title>
+  
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="admin-styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <header class="site-header mo-left header style-1">
+        <div class="header-info-bar">
+            <div class="container clearfix">
+                <div class="logo-header logo-dark">
+                    <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+            </div>
+        </div>
+        <div class="sticky-header main-bar-wraper navbar-expand-lg">
+            <div class="main-bar clearfix">
+                <div class="container clearfix">
+                    <div class="logo-header logo-dark">
+                        <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar">
+            
+            
+            <nav class="admin-nav">
+                <div class="admin-nav-section">
+                    <h3>Main</h3>
+                    <ul>
+                        <li>
+                            <a href="index.html" class="admin-nav-item">Home</a>
+                        </li>
+                        <li>
+                            <a href="view-issues.html" class="admin-nav-item">View Issues</a>
+                        </li>
+                        <li>
+                            <a href="report-issue.html" class="admin-nav-item active">Report Issue</a>
+                        </li>
+                        <li>
+                            <a href="my-profile.html" class="admin-nav-item">Profile</a>
+                        </li>
+                        <li>
+                            <a href="books-grid-view.html" class="admin-nav-item">Browse Books</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="admin-header-left">
+                    <h2>Report an Issue</h2>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <form action="submit-issue.php" method="POST" class="issue-report-form">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="issue-description">Issue Description:</label>
+                        <textarea id="issue-description" name="issue_description" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category" name="category">
+                            <option value="exchange">Exchange Issue</option>
+                            <option value="condition">Condition Issue</option>
+                            <option value="return">Return Issue</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit Report</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin-scripts.js"></script>
+</body>
+<style>
+  .admin-layout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+  }
+
+  .admin-sidebar {
+    width: 250px; /* Adjust the width as needed */
+    height: 100%;
+    background-color: #f8f9fa; /* Add a background color */
+  }
+
+  .admin-main {
+    width: calc(100% - 250px); /* Adjust the width based on the sidebar width */
+    height: 100%;
+    overflow-y: auto; /* Add a scrollbar if content exceeds height */
+  }
+
+  .issue-report-form {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .btn {
+    padding: 10px 15px;
+    background-color: #eaa45e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #d99a3d;
+  }
+</style>
+</html>
