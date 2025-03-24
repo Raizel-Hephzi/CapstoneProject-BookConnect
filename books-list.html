@@ -259,7 +259,7 @@
 	
 </header>
 <!-- Header End -->
-	
+<div id="book-list-container">
 	<div class="page-content bg-grey">
 		<section class="content-inner-1 border-bottom">
 			<div class="container">
@@ -1076,6 +1076,42 @@
 	<script src="js/custom.js"></script><!-- CUSTOM JS -->
 
 </body>
+<script>
 
+document.addEventListener("DOMContentLoaded", function () {
+    function updateBookList() {
+        const books = JSON.parse(localStorage.getItem("books")) || [];
+        const bookListContainer = document.getElementById("bookList");
+        
+        if (!bookListContainer) return; // Ensure the element exists
+
+        bookListContainer.innerHTML = "";
+        books.forEach((book, index) => {
+            const bookItem = document.createElement("div");
+            bookItem.classList.add("book-item");
+            bookItem.innerHTML = `
+                <h3>${book.title}</h3>
+                <p><strong>Author:</strong> ${book.author}</p>
+                <p><strong>Category:</strong> ${book.category}</p>
+                <p><strong>Type:</strong> ${book.type}</p>
+                ${book.image ? `<img src="${book.image}" alt="${book.title}" width="100">` : ""}
+                ${book.file ? `<p><strong>File:</strong> ${book.file}</p>` : ""}
+                <button onclick="deleteBook(${index})">Delete</button>
+            `;
+            bookListContainer.appendChild(bookItem);
+        });
+    }
+
+    function deleteBook(index) {
+        let books = JSON.parse(localStorage.getItem("books")) || [];
+        books.splice(index, 1);
+        localStorage.setItem("books", JSON.stringify(books));
+        updateBookList(); // Refresh list after deletion
+    }
+
+    updateBookList(); // Run on page load
+});
+
+</script>
 
 </html>
