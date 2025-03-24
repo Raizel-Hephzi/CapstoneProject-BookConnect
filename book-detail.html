@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Group 15" />
+    <meta name="robots" content=""/>
+    <meta name="description" content="BookConnect-Book Store Ecommerce Website"/>
+    <meta property="og:title" content="BookConnect-Book Store Ecommerce Website"/>
+    <meta property="og:description" content="BookConnect-Book Store Ecommerce Website"/>
+    <meta property="og:image" content="social-image.png"/>
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- FAVICONS ICON -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.png"/>
+    
+    <!-- PAGE TITLE HERE -->
+    <title>Book Details - BookConnect</title>
+    
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="icons/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="searchstyle.css">
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path-to-your-flaticon.css">
+    
+    <style>
+        .book-detail-container {
+            padding: 50px 0;
+        }
+        .book-image {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .book-info {
+            margin-top: 20px;
+        }
+        .book-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .book-author {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .book-price {
+            font-size: 1.5rem;
+            color: #ff5e14;
+            margin-bottom: 20px;
+        }
+        .book-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        .book-meta {
+            margin-bottom: 30px;
+        }
+        .book-meta-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        .book-meta-label {
+            font-weight: 600;
+            width: 150px;
+        }
+        .book-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .rating-stars {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+        .book-actions {
+            margin-top: 30px;
+        }
+        .related-books {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        .related-book-card {
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        .related-book-card:hover {
+            transform: translateY(-5px);
+        }
+        .review-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .review-user {
+            font-weight: 600;
+        }
+        .review-rating {
+            color: #ffc107;
+        }
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #ff5e14;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .error-message {
+            text-align: center;
+            padding: 50px;
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wraper">
+        <div id="loading-area" class="preloader-wrapper-1">
+            <div class="preloader-inner">
+                <div class="preloader-shade"></div>
+                <div class="preloader-wrap"></div>
+                <div class="preloader-wrap wrap2"></div>
+                <div class="preloader-wrap wrap3"></div>
+                <div class="preloader-wrap wrap4"></div>
+                <div class="preloader-wrap wrap5"></div>
+            </div>  
+        </div>
+        
+        <!-- Header -->
+        <header class="site-header mo-left header style-1">
+            <!-- Main Header -->
+            <div class="header-info-bar">
+                <div class="container clearfix">
+                    <!-- Website Logo -->
+                    <div class="logo-header logo-dark">
+                        <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                    </div>
+                    
+                    <!-- EXTRA NAV -->
+                    <div class="extra-nav">
+                        <div class="extra-cell">
+                            <ul class="navbar-nav header-right">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="wishlist.html">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+                                        <span class="badge">21</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" class="nav-link box cart-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                                        <span class="badge">5</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- header search nav -->
+                    <div class="header-search-nav">
+                        <form class="header-item-search">
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Main Header End -->
+            
+            <!-- Main Header -->
+            <div class="sticky-header main-bar-wraper navbar-expand-lg">
+                <div class="main-bar clearfix">
+                    <div class="container clearfix">
+                        <!-- Website Logo -->
+                        <div class="logo-header logo-dark">
+                            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                        </div>
+                        
+                        <!-- Nav Toggle Button -->
+                        <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        
+                        <!-- EXTRA NAV -->
+                        <div class="extra-nav">
+                            <div class="extra-cell">
+                                <a href="signup.html" class="btn btn-primary btnhover">Sign Up Now</a>    
+                            </div>
+                        </div>
+                        <div class="extra-nav-01">
+                            <div class="extra-cell-01">
+                                <a href="shop-login.html" class="btn btn-primary btnhover">Log In</a>    
+                            </div>
+                        </div>
+                        
+                        <!-- Main Nav -->
+                        <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                            <div class="logo-header logo-dark">
+                                <a href="index.html"><img src="images/logo.png" alt=""></a>
+                            </div>
+                            <form class="search-input">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
+                                    <button class="btn" type="button"><i class="flaticon-loupe"></i></button>
+                                </div>
+                            </form>
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="books-grid-view.html">Browse Books </a></li>
+                                <li><a href="about-us.html">About </a></li>
+                                <li><a href="contact-us.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Main Header End -->
+        </header>
+        <!-- Header End -->
+        
+        <div class="page-content bg-white">
+            <div class="container book-detail-container">
+                <div id="book-detail-content">
+                    <!-- Content will be loaded dynamically -->
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                
+                <div class="related-books">
+                    <h3 class="mb-4">Related Books</h3>
+                    <div class="row" id="related-books-container">
+                        <!-- Related books will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="site-footer style-1">
+            <!-- Footer Category -->
+            <div class="footer-category">
+                <div class="container">
+                    <div class="category-toggle">
+                        <a href="javascript:void(0);" class="toggle-btn">Books categories</a>
+                        <div class="toggle-items row book-grid-row">
+                            <div class="footer-col-book">
+                                <ul>
+                                    <li><a href="books-grid-view.html">Architecture</a></li>
+                                    <li><a href="books-grid-view.html">Art</a></li>
+                                    <li><a href="books-grid-view.html">Action</a></li>
+                                    <li><a href="books-grid-view.html">Biography</a></li>
+                                    <li><a href="books-grid-view.html">Body, Mind & Spirit</a></li>
+                                    <li><a href="books-grid-view.html">Business & Economics</a></li>
+                                    <li><a href="books-grid-view.html">Children Fiction</a></li>
+                                    <li><a href="books-grid-view.html">Children Non-Fiction</a></li>
+                                    <li><a href="books-grid-view.html">Comics & Graphics</a></li>
+                                    <li><a href="books-grid-view.html">Cooking</a></li>
+                                    <li><a href="books-grid-view.html">Crafts & Hobbies</a></li>
+                                    <li><a href="books-grid-view.html">Design</a></li>
+                                    <li><a href="books-grid-view.html">Drama</a></li>
+                                    <li><a href="books-grid-view.html">Education</a></li>
+                                    <li><a href="books-grid-view.html">Family & Relationships</a></li>
+                                    <li><a href="books-grid-view.html">Fiction</a></li>
+                                    <li><a href="books-grid-view.html">Foreign Language</a></li>
+                                    <li><a href="books-grid-view.html">Games</a></li>
+                                    <li><a href="books-grid-view.html">Gardening</a></li>
+                                    <li><a href="books-grid-view.html">Health & Fitness</a></li>
+                                    <li><a href="books-grid-view.html">History</a></li>
+                                    <li><a href="books-grid-view.html">House & Home</a></li>
+                                    <li><a href="books-grid-view.html">Humor</a></li>
+                                    <li><a href="books-grid-view.html">Literary Collections</a></li>
+                                    <li><a href="books-grid-view.html">Mathematics</a></li>
+                                    <li><a href="books-grid-view.html">Medical</a></li>
+                                    <li><a href="books-grid-view.html">Nature</a></li>
+                                    <li><a href="books-grid-view.html">Performing Arts</a></li>
+                                    <li><a href="books-grid-view.html">Pets</a></li>
+                                    <li><a href="books-grid-view.html">Show others</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Category End -->
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row fb-inner">
+                        <div class="col-lg-6 col-md-12 text-start"> 
+                            <p class="copyright-text">BookConnect Book Store Ecommerce Website - © <span class="current-year">2025</span> All Rights Reserved</p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-end"> 
+                            <p>Made with <span class="heart"></span> by <a href="#">Group 15</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Bottom End -->
+        </footer>
+        <!-- Footer End -->
+        
+        <button class="scroltop" type="button"><i class="fas fa-arrow-up"></i></button>
+    </div>
+
+    <!-- JAVASCRIPT FILES ========================================= -->
+    <script src="js/jquery.min.js"></script><!-- JQUERY MIN JS -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP MIN JS -->
+    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script><!-- BOOTSTRAP SELECT MIN JS -->
+    <script src="vendor/swiper/swiper-bundle.min.js"></script><!-- SWIPER JS --> 
+    <script src="js/dz.carousel.js"></script><!-- DZ CAROUSEL JS -->
+    <script src="js/custom.js"></script><!-- CUSTOM JS -->
+    <script src="api.js"></script><!-- API JS -->
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the book ID from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookId = urlParams.get('id');
+            
+            if (!bookId) {
+                showError("Book ID not provided. Please go back and select a book.");
+                return;
+            }
+            
+            // Fetch book details
+            const book = getBookById(bookId);
+            
+            if (!book) {
+                showError("Book not found. Please go back and select a different book.");
+                return;
+            }
+            
+            // Display book details
+            displayBookDetails(book);
+            
+            // Load related books
+            loadRelatedBooks(bookId);
+        });
+        
+        function displayBookDetails(book) {
+            const bookDetailContent = document.getElementById('book-detail-content');
+            
+            // Generate star rating HTML
+            let starsHtml = '';
+            const fullStars = Math.floor(book.rating);
+            const hasHalfStar = book.rating % 1 >= 0.5;
+            
+            for (let i = 0; i < 5; i++) {
+                if (i < fullStars) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                } else if (i === fullStars && hasHalfStar) {
+                    starsHtml += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    starsHtml += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            // Generate reviews HTML
+            let reviewsHtml = '';
+            if (book.reviews && book.reviews.length > 0) {
+                book.reviews.forEach(review => {
+                    let reviewStars = '';
+                    for (let i = 0; i < 5; i++) {
+                        reviewStars += i < review.rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                    }
+                    
+                    reviewsHtml += `
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="review-user">${review.user}</span>
+                                <span class="review-rating">${reviewStars}</span>
+                            </div>
+                            <p class="review-text">${review.comment}</p>
+                        </div>
+                    `;
+                });
+            } else {
+                reviewsHtml = '<p>No reviews yet.</p>';
+            }
+            
+            // Create HTML for book details
+            const html = `
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="${book.image}" alt="${book.title}" class="book-image">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="book-info">
+                            <h1 class="book-title">${book.title}</h1>
+                            <h3 class="book-author">by ${book.author}</h3>
+                            
+                            <div class="book-rating">
+                                <div class="rating-stars">${starsHtml}</div>
+                                <span>${book.rating.toFixed(1)} out of 10</span>
+                            </div>
+                            
+                            <div class="book-price">
+                                ${book.isFree ? 
+                                    '<span class="price-num">Free</span> <del>₵' + book.price.toFixed(2) + '</del>' : 
+                                    '₵' + book.price.toFixed(2)}
+                            </div>
+                            
+                            <div class="book-description">
+                                <p>${book.description}</p>
+                            </div>
+                            
+                            <div class="book-meta">
+                                <div class="book-meta-item">
+                                    <span class="book-meta-label">Category:</span>
+                                    <span>${book.category}</span>
+                                </div>
+                                <div class="book-meta-item">
+                                    <span class="book-meta-label">Pages:</span>
+                                    <span>${book.pages}</span>
+                                </div>
+                                <div class="book-meta-item">
+                                    <span class="book-meta-label">Language:</span>
+                                    <span>${book.language}</span>
+                                </div>
+                                <div class="book-meta-item">
+                                    <span class="book-meta-label">Publisher:</span>
+                                    <span>${book.publisher}</span>
+                                </div>
+                                <div class="book-meta-item">
+                                    <span class="book-meta-label">Publication Date:</span>
+                                    <span>${book.publishDate}</span>
+                                </div>
+                                <div class="book-meta-item">
+                                    <span class="book-meta-label">ISBN:</span>
+                                    <span>${book.isbn}</span>
+                                </div>
+                                <div class="book-meta-item">
+                                    <span class="book-meta-label">Availability:</span>
+                                    <span>${book.availability}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="book-actions">
+                                <a href="chatroom.html" class="btn btn-primary btnhover m-r10">Swap / Buy</a>
+                                <a href="#" class="btn btn-outline-secondary btnhover">Add to Wishlist</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h3 class="mb-4">Reviews</h3>
+                        <div class="reviews-container">
+                            ${reviewsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            bookDetailContent.innerHTML = html;
+        }
+        
+        function loadRelatedBooks(bookId) {
+            const relatedBooksContainer = document.getElementById('related-books-container');
+            const relatedBooks = getRelatedBooks(bookId);
+            
+            if (relatedBooks.length === 0) {
+                document.querySelector('.related-books').style.display = 'none';
+                return;
+            }
+            
+            let html = '';
+            relatedBooks.forEach(book => {
+                html += `
+                    <div class="col-md-4 col-sm-6">
+                        <div class="related-book-card">
+                            <div class="books-card style-3 wow fadeInUp">
+                                <div class="dz-media">
+                                    <img src="${book.image}" alt="${book.title}">
+                                </div>
+                                <div class="dz-content">
+                                    <h5 class="title"><a href="book-detail.html?id=${book.id}">${book.title}</a></h5>
+                                    <ul class="dz-tags">
+                                        <li><a href="javascript:void(0);">${book.author}</a></li>
+                                        <li><a href="javascript:void(0);">${book.category}</a></li>
+                                    </ul>
+                                    <div class="book-footer">
+                                        <div class="rate">
+                                            <i class="flaticon-star"></i> ${book.rating}
+                                        </div>
+                                        <div class="price">
+                                            <span class="price-num">${book.isFree ? 'Free' : '₵' + book.price.toFixed(2)}</span>
+                                            ${book.isFree ? `<del>₵${book.price.toFixed(2)}</del>` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            relatedBooksContainer.innerHTML = html;
+        }
+        
+        function showError(message) {
+            const bookDetailContent = document.getElementById('book-detail-content');
+            bookDetailContent.innerHTML = `<div class="error-message">${message}</div>`;
+            document.querySelector('.related-books').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
