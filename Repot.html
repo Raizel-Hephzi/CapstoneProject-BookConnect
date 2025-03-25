@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="images/favicon.png"/>
   
-  <!-- PAGE TITLE HERE -->
   <title>Report Issue - BookConnect</title>
   
-  <!-- STYLESHEETS -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="admin-styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
@@ -34,35 +32,21 @@
     </header>
 
     <div class="admin-layout">
-        <!-- Sidebar Navigation -->
         <aside class="admin-sidebar">
-            
-            
             <nav class="admin-nav">
                 <div class="admin-nav-section">
                     <h3>Main</h3>
                     <ul>
-                        <li>
-                            <a href="index.html" class="admin-nav-item">Home</a>
-                        </li>
-                        <li>
-                            <a href="view-issues.html" class="admin-nav-item">View Issues</a>
-                        </li>
-                        <li>
-                            <a href="report-issue.html" class="admin-nav-item active">Report Issue</a>
-                        </li>
-                        <li>
-                            <a href="my-profile.html" class="admin-nav-item">Profile</a>
-                        </li>
-                        <li>
-                            <a href="books-grid-view.html" class="admin-nav-item">Browse Books</a>
-                        </li>
+                        <li><a href="index.html" class="admin-nav-item">Home</a></li>
+                        <li><a href="view-reports.html" class="admin-nav-item">View Reports</a></li>
+                        <li><a href="report-issue.html" class="admin-nav-item active">Report Issue</a></li>
+                        <li><a href="my-profile.html" class="admin-nav-item">Profile</a></li>
+                        <li><a href="books-grid-view.html" class="admin-nav-item">Browse Books</a></li>
                     </ul>
                 </div>
             </nav>
         </aside>
 
-        <!-- Main Content Area -->
         <main class="admin-main">
             <header class="admin-header">
                 <div class="admin-header-left">
@@ -71,7 +55,7 @@
             </header>
 
             <div class="admin-content">
-                <form action="submit-issue.php" method="POST" class="issue-report-form">
+                <form id="issueReportForm" class="issue-report-form">
                     <div class="form-group">
                         <label for="name">Your Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -102,64 +86,92 @@
     </div>
 
     <script src="admin-scripts.js"></script>
+    <script>
+        document.getElementById("issueReportForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const description = document.getElementById("issue-description").value;
+            const category = document.getElementById("category").value;
+
+            // Create a report object
+            const report = {
+                name,
+                email,
+                description,
+                category,
+                timestamp: new Date().toISOString() // Add a timestamp
+            };
+
+            // Save the report to localStorage
+            let reports = JSON.parse(localStorage.getItem("reports")) || [];
+            reports.push(report);
+            localStorage.setItem("reports", JSON.stringify(reports));
+
+            // Redirect to the view reports page
+            window.location.href = "view-reports.html"; // Redirect to the user's report view
+        });
+    </script>
 </body>
 <style>
-  .admin-layout {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-  }
-
-  .admin-sidebar {
-    width: 250px; /* Adjust the width as needed */
-    height: 100%;
-    background-color: #f8f9fa; /* Add a background color */
-  }
-
-  .admin-main {
-    width: calc(100% - 250px); /* Adjust the width based on the sidebar width */
-    height: 100%;
-    overflow-y: auto; /* Add a scrollbar if content exceeds height */
-  }
-
-  .issue-report-form {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
-  }
-
-  .form-group {
-    margin-bottom: 15px;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .btn {
-    padding: 10px 15px;
-    background-color: #eaa45e;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .btn:hover {
-    background-color: #d99a3d;
-  }
-</style>
+    .admin-layout {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+    }
+  
+    .admin-sidebar {
+      width: 250px; /* Adjust the width as needed */
+      height: 100%;
+      background-color: #f8f9fa; /* Add a background color */
+    }
+  
+    .admin-main {
+      width: calc(100% - 250px); /* Adjust the width based on the sidebar width */
+      height: 100%;
+      overflow-y: auto; /* Add a scrollbar if content exceeds height */
+    }
+  
+    .issue-report-form {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+    }
+  
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    .btn {
+      padding: 10px 15px;
+      background-color: #eaa45e;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    .btn:hover {
+      background-color: #d99a3d;
+    }
+  </style>
 </html>

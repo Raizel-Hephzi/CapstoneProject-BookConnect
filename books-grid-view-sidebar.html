@@ -924,6 +924,9 @@
 											<li><i class="flaticon-star text-yellow"></i></li>		
 											<li><i class="flaticon-star text-muted"></i></li>		
 										</ul>
+										
+													<div id="bookList"></div> <!-- This is where the books will be displayed -->
+
 										<div class="book-footer">
 											<div class="price">
 												<span class="price-num">₵57.5</span>
@@ -1283,26 +1286,7 @@
 											<i class="flaticon-heart"></i>
 										</label>
 									</div>
-									<div class="dz-content">
-										<h5 class="title"><a href="books-grid-view.html">Missadventure</a></h5>
-										<ul class="dz-tags">
-											<li><a href="books-grid-view.html">ADVENTURE</a></li>
-										</ul>
-										<ul class="dz-rating">
-											<li><i class="flaticon-star text-yellow"></i></li>	
-											<li><i class="flaticon-star text-yellow"></i></li>	
-											<li><i class="flaticon-star text-yellow"></i></li>	
-											<li><i class="flaticon-star text-muted"></i></li>		
-											<li><i class="flaticon-star text-muted"></i></li>		
-										</ul>
-										<div class="book-footer">
-											<div class="price">
-												<span class="price-num">₵53.0</span>
-												<del>₵44.0</del>
-											</div>
-											<a href="shop-cart.html" class="btn btn-secondary box-btn btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -1326,7 +1310,9 @@
 				</div>
 			</div>
 		</div>
-		
+
+		<div id="bookList"></div> <!-- This is where the books will be displayed -->
+
 		<!-- Newsletter -->
 		<section class="py-5 newsletter-wrapper" style="background-image: url('images/background/bg1.jpg'); background-size: cover;">
 			<div class="container">
@@ -1520,6 +1506,68 @@
 <script src="js/dz.ajax.js"></script><!-- AJAX -->
 <script src="js/custom.js"></script><!-- CUSTOM JS -->
 
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		function updateBookList() {
+			const books = JSON.parse(localStorage.getItem("books")) || [];
+			const bookListContainer = document.getElementById("bookListContainer");
+	
+			// Clear previous content
+			bookListContainer.innerHTML = "";
+			
+			// Check if there are books to display
+			if (books.length === 0) {
+				bookListContainer.innerHTML = "<div class='col-12 text-center'><p>No books uploaded yet.</p></div>";
+				return;
+			}
+	
+			// Create book items
+			books.forEach((book, index) => {
+				const bookItem = document.createElement("div");
+				bookItem.classList.add("col-book", "style-2");
+				bookItem.innerHTML = `
+					<div class="dz-shop-card style-1">
+						<div class="dz-media">
+							${book.image ? `<img src="${book.image}" alt="${book.title}">` : `<img src="images/books/default-book.jpg" alt="Default book image">`}
+						</div>
+						<div class="bookmark-btn style-2">
+							<input class="form-check-input" type="checkbox" id="flexCheckDefault${index}">
+							<label class="form-check-label" for="flexCheckDefault${index}">
+								<i class="flaticon-heart"></i>
+							</label>
+						</div>
+						<div class="dz-content">
+							<h5 class="title"><a href="books-detail.html">${book.title}</a></h5>
+							<ul class="dz-tags">
+								<li><a href="books-grid-view.html">${book.category || "General"}</a></li>
+							</ul>
+							<ul class="dz-rating">
+								<li><i class="flaticon-star text-yellow"></i></li>	
+								<li><i class="flaticon-star text-yellow"></i></li>	
+								<li><i class="flaticon-star text-yellow"></i></li>	
+								<li><i class="flaticon-star text-yellow"></i></li>		
+								<li><i class="flaticon-star text-muted"></i></li>		
+							</ul>
+							<div class="book-footer">
+								<div class="price">
+									<span class="price-num">₵${book.price || "0.00"}</span>
+									${book.originalPrice ? `<del>₵${book.originalPrice}</del>` : ""}
+								</div>
+								<a href="shop-cart.html" class="btn btn-secondary box-btn btnhover btnhover2">
+									<i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart
+								</a>
+							</div>
+						</div>
+					</div>
+				`;
+				bookListContainer.appendChild(bookItem);
+			});
+		}
+	
+		updateBookList(); // Initial call to display the books
+	});
+	</script>
 </body>
 
 

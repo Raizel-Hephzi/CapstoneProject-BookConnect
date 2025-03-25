@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Reports - BookConnect</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin-styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+  <div class="user-layout">
+    <header class="site-header mo-left header style-1">
+        <div class="header-info-bar">
+      <h1>Your Reports</h1>
+
+      <div class="container clearfix">
+        <div class="logo-header logo-dark">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+        </div>
+    </header>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <nav class="admin-nav">
+                <div class="admin-nav-section">
+                    <h3>Main</h3>
+                    <ul>
+                        <li><a href="index.html" class="admin-nav-item">Home</a></li>
+                        <li><a href="view-reports.html" class="admin-nav-item">View Reports</a></li>
+                        <li><a href="report-issue.html" class="admin-nav-item active">Report Issue</a></li>
+                        <li><a href="my-profile.html" class="admin-nav-item">Profile</a></li>
+                        <li><a href="books-grid-view.html" class="admin-nav-item">Browse Books</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+    <div class="reports-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Issue Description</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Admin Reply</th>
+          </tr>
+        </thead>
+        <tbody id="userReportsTableBody">
+          <!-- Reports will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const reports = JSON.parse(localStorage.getItem("reports")) || [];
+      const userReportsTableBody = document.getElementById("userReportsTableBody");
+
+      // Clear previous content
+      userReportsTableBody.innerHTML = "";
+
+      // Check if there are reports to display
+      if (reports.length === 0) {
+        const emptyRow = document.createElement("tr");
+        emptyRow.innerHTML = "<td colspan='8'>No reports submitted.</td>";
+        userReportsTableBody.appendChild(emptyRow);
+        return;
+      }
+
+      // Create rows for each report
+      reports.forEach((report, index) => {
+        const reportRow = document.createElement("tr");
+        reportRow.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${report.name}</td>
+          <td>${report.email}</td>
+          <td>${report.description}</td>
+          <td>${report.category}</td>
+          <td>${report.reply ? "Replied" : "Pending"}</td>
+          <td>${new Date(report.timestamp).toLocaleString()}</td>
+          <td>${report.reply ? report.reply : "No reply yet"}</td>
+        `;
+        userReportsTableBody.appendChild(reportRow);
+      });
+    });
+  </script>
+
+  <style>
+    /* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Header */
+.site-header {
+  background-color: white;
+  color: #000;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+/* Reports Container */
+.reports-container {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  background: #f2f2f2;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.data-table th, .data-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+  background-color: #eaa45e;
+  color: #fff;
+  font-weight: 600;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.data-table tr:hover {
+  background-color: #fffad8;
+}
+
+.data-table td {
+  font-size: 0.95em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .data-table th, .data-table td {
+    font-size: 0.85em;
+  }
+
+  .site-header h1 {
+    font-size: 1.8em;
+  }
+
+}
+
+.admin-layout {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+    }
+
+.admin-sidebar {
+      width: 250px; /* Adjust the width as needed */
+      height: 100%;
+      background-color: #f8f9fa; /* Add a background color */
+    }
+  
+
+  </style>
+
+</body>
+</html>

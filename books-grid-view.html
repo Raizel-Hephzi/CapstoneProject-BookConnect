@@ -1178,5 +1178,71 @@
 <script src="js/custom.js"></script><!-- CUSTOM JS -->
 <script src="js/cart.js"></script><!-- CART JS -->
 
+<script>
+
+	document.addEventListener("DOMContentLoaded", function () {
+		function updateBookList() {
+			const books = JSON.parse(localStorage.getItem("books")) || [];
+			const bookListContainer = document.getElementById("bookList");
+	
+			// Clear previous content
+			bookListContainer.innerHTML = "";
+			
+			// Check if there are books to display
+			if (books.length === 0) {
+				bookListContainer.innerHTML = "<p>No books uploaded yet.</p>";
+				return;
+			}
+	
+			// Create book items
+			books.forEach((book, index) => {
+				const bookItem = document.createElement("div");
+				bookItem.classList.add("dz-shop-card", "style-2"); // Add your class for styling
+				bookItem.innerHTML = `
+					<div class="dz-media">
+						${book.image ? `<img src="${book.image}" alt="${book.title}">` : ""}
+					</div>
+					<div class="dz-content">
+						<div class="dz-header">
+							<h4 class="title mb-0"><a href="book-detail.html">${book.title}</a></h4>
+							<div class="price">
+								<span class="price-num text-primary">₵${book.price || "0.00"}</span>
+								<del>₵${book.originalPrice || "0.00"}</del>
+							</div>
+						</div>
+						<div class="rate">
+							<ul class="book-info">
+								<li><span>Written by</span>${book.author}</li>
+								<li><span>Publisher</span>${book.publisher || "Unknown"}</li>
+								<li><span>Year</span>${book.year || "N/A"}</li>
+							</ul>
+							<div class="d-flex">
+								<a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2">
+									<i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart
+								</a>
+								<div class="bookmark-btn style-1">
+									<input class="form-check-input" type="checkbox" id="flexCheckDefault${index}">
+									<label class="form-check-label" for="flexCheckDefault${index}">
+										<i class="flaticon-heart"></i>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				`;
+				bookListContainer.appendChild(bookItem);
+			});
+		}
+	
+		window.deleteBook = function(index) {
+			let books = JSON.parse(localStorage.getItem("books")) || [];
+			books.splice(index, 1);
+			localStorage.setItem("books", JSON.stringify(books));
+			updateBookList(); // Refresh the book list after deletion
+		};
+	
+		updateBookList(); // Initial call to display the books
+	});
+	</script>
 </body>
 </html>

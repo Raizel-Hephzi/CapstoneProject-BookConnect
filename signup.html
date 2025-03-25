@@ -6,6 +6,7 @@
   <title>Book Connect - Sign Up</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  
 </head>
 <body>
   <div class="container">
@@ -27,7 +28,7 @@
         <!-- Sign Up Form -->
         <div class="form-container signup-container active">
           <h2>Create Account</h2>
-          <form id="signup-form">
+          <form id="signup-form" onsubmit="return validateForm()">
             <div class="input-field">
               <input type="text" id="signup-name" required>
               <label for="signup-name">Full Name</label>
@@ -40,6 +41,13 @@
               <label for="signup-email">Email</label>
               <div class="input-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+            </div>
+            <div class="input-field">
+              <input type="text" id="student-id" required>
+              <label for="student-id">Student ID (must start with 2 and be 8 digits)</label>
+              <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 12h3v8h14v-8h3z"></path></svg>
               </div>
             </div>
             <div class="input-field">
@@ -74,5 +82,26 @@
     </div>
   </div>
 
+  <script>
+    function validateForm() {
+      const studentId = document.getElementById('student-id').value;
+      const password = document.getElementById('signup-password').value;
+      const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+      if (!/^2\d{7}$/.test(studentId)) {
+        alert('Student ID incorrect.');
+        return false; // Prevent form submission
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return false; // Prevent form submission
+      }
+
+      // Redirect to index.html if validation is successful
+      window.location.href = 'index.html';
+      return true; // Allow form submission
+    }
+  </script>
 </body>
 </html>

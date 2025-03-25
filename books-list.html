@@ -260,6 +260,9 @@
 </header>
 <!-- Header End -->
 <div id="book-list-container">
+	
+	
+
 	<div class="page-content bg-grey">
 		<section class="content-inner-1 border-bottom">
 			<div class="container">
@@ -540,6 +543,8 @@
 							</div>
 						</div>
 					</div>
+					
+	<div id="bookList"></div> <!-- This is where the books will be displayed -->
 					<div class="col-md-12 col-sm-12">
 						<div class="dz-shop-card style-2">
 							<div class="dz-media">
@@ -549,8 +554,8 @@
 								<div class="dz-header">
 									<div>
 										<ul class="dz-tags">
-											<li><a href="books-list.html">MOTIVATION &</a></li>
-											<li><a href="books-list.html">PERSONAL DEVELOPMENT</a></li>
+											<li><a href="book-detail.html">MOTIVATION &</a></li>
+											<li><a href="books-dbook-detail.html">PERSONAL DEVELOPMENT</a></li>
 											
 										</ul>
 										<h4 class="title mb-0"><a href="books-list.html">Atomic Habits</a></h4>
@@ -1082,36 +1087,65 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateBookList() {
         const books = JSON.parse(localStorage.getItem("books")) || [];
         const bookListContainer = document.getElementById("bookList");
-        
-        if (!bookListContainer) return; // Ensure the element exists
 
+        // Clear previous content
         bookListContainer.innerHTML = "";
+        
+        // Check if there are books to display
+        if (books.length === 0) {
+            bookListContainer.innerHTML = "<p>No books uploaded yet.</p>";
+            return;
+        }
+
+        // Create book items
         books.forEach((book, index) => {
             const bookItem = document.createElement("div");
-            bookItem.classList.add("book-item");
+            bookItem.classList.add("dz-shop-card", "style-2"); // Add your class for styling
             bookItem.innerHTML = `
-                <h3>${book.title}</h3>
-                <p><strong>Author:</strong> ${book.author}</p>
-                <p><strong>Category:</strong> ${book.category}</p>
-                <p><strong>Type:</strong> ${book.type}</p>
-                ${book.image ? `<img src="${book.image}" alt="${book.title}" width="100">` : ""}
-                ${book.file ? `<p><strong>File:</strong> ${book.file}</p>` : ""}
-                <button onclick="deleteBook(${index})">Delete</button>
+                <div class="dz-media">
+                    ${book.image ? `<img src="${book.image}" alt="${book.title}">` : ""}
+                </div>
+                <div class="dz-content">
+                    <div class="dz-header">
+                        <h4 class="title mb-0"><a href="book-detail.html">${book.title}</a></h4>
+                        <div class="price">
+                            <span class="price-num text-primary">₵${book.price || "0.00"}</span>
+                            <del>₵${book.originalPrice || "0.00"}</del>
+                        </div>
+                    </div>
+                    <div class="rate">
+                        <ul class="book-info">
+                            <li><span>Written by</span>${book.author}</li>
+                            <li><span>Publisher</span>${book.publisher || "Unknown"}</li>
+                            <li><span>Year</span>${book.year || "N/A"}</li>
+                        </ul>
+                        <div class="d-flex">
+                            <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2">
+                                <i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart
+                            </a>
+                            <div class="bookmark-btn style-1">
+                                <input class="form-check-input" type="checkbox" id="flexCheckDefault${index}">
+                                <label class="form-check-label" for="flexCheckDefault${index}">
+                                    <i class="flaticon-heart"></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             `;
             bookListContainer.appendChild(bookItem);
         });
     }
 
-    function deleteBook(index) {
+    window.deleteBook = function(index) {
         let books = JSON.parse(localStorage.getItem("books")) || [];
         books.splice(index, 1);
         localStorage.setItem("books", JSON.stringify(books));
-        updateBookList(); // Refresh list after deletion
-    }
+        updateBookList(); // Refresh the book list after deletion
+    };
 
-    updateBookList(); // Run on page load
+    updateBookList(); // Initial call to display the books
 });
-
 </script>
 
 </html>

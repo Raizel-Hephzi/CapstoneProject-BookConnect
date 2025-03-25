@@ -101,33 +101,20 @@
             <button>Search</button>
         </div>
         <section class="book-management">
-            <div class="section">
+            <div id="bookList">
                 <h2>My Books</h2>
-                <h3>Possessed Books</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Book Cover</th>
-                            <th>Book Title</th>
-                            <th>Author</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="book-placeholder.jpg" alt="Book Cover"></td>
-                            <td>Book Title 1</td>
-                            <td>Author 1</td>
-                            <td><button class="delete-button">Delete</button></td>
-                        </tr>
-                        <tr>
-                            <td><img src="book-placeholder.jpg" alt="Book Cover"></td>
-                            <td>Book Title 2</td>
-                            <td>Author 2</td>
-                            <td><button class="delete-button">Delete</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <h3>Possessed Books</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Book Cover</th>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="possessedBooks"></tbody> <!-- Dynamic content will be inserted here -->
+    </table>
             </div>
             <div class="section">
                 <h2>Books I've Shared</h2>
@@ -167,7 +154,7 @@
                     </tbody>
                 </table>
                 <h3>Books to Exchange</h3>
-                <table>
+                <table id="exchangeBooksTable">
                     <thead>
                         <tr>
                             <th>Book Cover</th>
@@ -175,18 +162,7 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="book-placeholder.jpg" alt="Book Cover"></td>
-                            <td>Book Title 3</td>
-                            <td><button class="exchange-button">Exchange</button></td>
-                        </tr>
-                        <tr>
-                            <td><img src="book-placeholder.jpg" alt="Book Cover"></td>
-                            <td>Book Title 4</td>
-                            <td><button class="exchange-button">Exchange</button></td>
-                        </tr>
-                    </tbody>
+                    <tbody id="exchangeBooks"></tbody> <!-- Dynamic content will be inserted here -->
                 </table>
             </div>
         </section>
@@ -202,6 +178,45 @@
     <script src="js/dz.carousel.js"></script>
     <script src="js/dz.ajax.js"></script>
     <script src="js/custom.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+            function updateBookLists() {
+                const books = JSON.parse(localStorage.getItem("books")) || [];
+                const possessedBooksContainer = document.getElementById("possessedBooks");
+
+                // Clear previous content
+                possessedBooksContainer.innerHTML = "";
+
+                // Check if there are books to display
+                if (books.length === 0) {
+                    possessedBooksContainer.innerHTML = "<tr><td colspan='4'>No books uploaded yet.</td></tr>";
+                    return;
+                }
+
+                // Create book items
+                books.forEach((book) => {
+                    const bookRow = document.createElement("tr");
+                    bookRow.innerHTML = `
+                        <td><img src="${book.image}" alt="${book.title}" style="width: 50px;"></td>
+                        <td>${book.title}</td>
+                        <td>${book.author}</td>
+                        <td><button class="delete-button" onclick="deleteBook('${book.title}')">Delete</button></td>
+                    `;
+                    possessedBooksContainer.appendChild(bookRow);
+                });
+            }
+
+            window.deleteBook = function(title) {
+                let books = JSON.parse(localStorage.getItem("books")) || [];
+                books = books.filter(book => book.title !== title); // Remove the book
+                localStorage.setItem("books", JSON.stringify(books));
+                updateBookLists(); // Refresh the book list after deletion
+            };
+
+            updateBookLists(); // Initial call to display the books
+        });
+    </script>
 
     <style>
         /* styles.css */
@@ -362,32 +377,5 @@
         }
     </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const deleteButtons = document.querySelectorAll('.delete-button');
-            const exchangeButtons = document.querySelectorAll('.exchange-button');
-
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    alert('Delete functionality coming soon!');
-                });
-            });
-
-            exchangeButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    alert('Exchange functionality coming soon!');
-                });
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const profileDropdown = document.querySelector('.profile-dropdown');
-            const profileDropdownToggle = profileDropdown.querySelector('.nav-link');
-
-            profileDropdownToggle.addEventListener('click', () => {
-                profileDropdown.classList.toggle('show');
-            });
-        });
-    </script>
 </body>
 </html>

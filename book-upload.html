@@ -36,15 +36,18 @@
             </div>
         </div>
     </div>
+
+    <div id="uploadSuccessMsg" class="d-none alert alert-success">
+        Book uploaded successfully!
+    </div>
+    <div id="uploadErrorMsg" class="d-none alert alert-danger">
+        Failed to upload the book. Please make sure the file is a valid PDF and try again.
+    </div>
     <!-- Main Header -->
     <div class="sticky-header main-bar-wraper navbar-expand-lg">
         <div class="main-bar clearfix">
             <div class="container clearfix">
-                <!-- Website Logo -->
-                <div class="logo-header logo-dark">
-                    <a href="index.html"><img src="images/logo.png" alt="logo"></a>
-                </div>
-
+                
                 <!-- Nav Toggle Button -->
                 <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span></span>
@@ -93,17 +96,13 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="dz-social-icon">
-                        <ul>
-                            <li><a class="fab fa-facebook-f" target="_blank" href="#"></a></li>
-                            <li><a class="fab fa-twitter" target="_blank" href="https://twitter.com/dexignzones"></a></li>
-                            <li><a class="fab fa-linkedin-in" target="_blank" href="https://www.linkedin.com/showcase/3686700/admin/"></a></li>
-                            <li><a class="fab fa-instagram" target="_blank" href="https://www.instagram.com/website_templates__/"></a></li>
-                        </ul>
+                   
                     </div>
                 </div>
             </div>
         </div>
+        
+        
     </div>
     <!-- Main Header End -->
 </header>
@@ -143,7 +142,7 @@
         </fieldset>
         <fieldset>
             <legend>Image Upload</legend>
-            <input type="file" id="image-upload" name="image-upload" accept="image/*">
+            <input type="file" id="image-upload" name="image-upload" accept="image/*" required>
         </fieldset>
         <fieldset>
             <legend>File Upload</legend>
@@ -151,49 +150,103 @@
         </fieldset>
         <button type="submit">Upload Book</button>
     </form>
-    <footer>
-        <div class="footer-links">
-            <a href="Admindashboard.html">Admin Dashboard</a>
-            <a href="Adminhistory.html">History</a>
-            <a href="Approvedusers.html">Approved Users</a>
-            <a href="shop-login.html">Log Out</a>
-        </div>
-    </footer>
 </main>
 
 <script>
-// Get the book type dropdown and the file upload field
-const bookTypeDropdown = document.getElementById('type');
-const fileUploadField = document.getElementById('file-upload');
+    document.addEventListener("DOMContentLoaded", function () {
+    const bookUploadForm = document.querySelector(".book-upload-form");
+    const successMessage = document.getElementById("uploadSuccessMsg");
+    const errorMessage = document.getElementById("uploadErrorMsg");
+    const bookTypeDropdown = document.getElementById('type');
+    const fileUploadField = document.getElementById('file-upload');
 
-// Add an event listener to the dropdown
-bookTypeDropdown.addEventListener('change', () => {
-    // Check the selected value
-    if (bookTypeDropdown.value === 'epub') { // "epub" represents Hard copy
-        fileUploadField.style.display = 'none'; // Hide file upload
-        fileUploadField.previousElementSibling.style.display = 'none'; // Hide label
-    } else {
-        fileUploadField.style.display = 'block'; // Show file upload
-        fileUploadField.previousElementSibling.style.display = 'block'; // Show label
+    // Ensure success message is hidden on page load
+    successMessage.classList.add("d-none");
+    errorMessage.classList.add("d-none");
+
+    // Hide file upload if "Hard copy" is selected
+    bookTypeDropdown.addEventListener('change', () => {
+        if (bookTypeDropdown.value === 'epub') {
+            fileUploadField.style.display = 'none';
+            fileUploadField.previousElementSibling.style.display = 'none';
+        } else {
+            fileUploadField.style.display = 'block';
+            fileUploadField.previousElementSibling.style.display = 'block';
+        }
+    });
+
+    // Initially hide file upload if "Hard copy" is selected by default
+    if (bookTypeDropdown.value === 'epub') {
+        fileUploadField.style.display = 'none';
+        fileUploadField.previousElementSibling.style.display = 'none';
     }
-});
 
-// Initially hide file upload if "Hard copy" is selected by default
-if (bookTypeDropdown.value === 'epub') {
-    fileUploadField.style.display = 'none';
-    fileUploadField.previousElementSibling.style.display = 'none';
-}
-</script>
-<script src="js/jquery.min.js"></script><!-- JQUERY MIN JS -->
-<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP MIN JS -->
-<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script><!-- BOOTSTRAP SELECT MIN JS -->
-<script src="vendor/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
-<script src="vendor/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
-<script src="vendor/wow/wow.min.js"></script><!-- WOW JS -->
-<script src="vendor/swiper/swiper-bundle.min.js"></script><!-- SWIPER JS --> 
-<script src="js/dz.carousel.js"></script><!-- DZ CAROUSEL JS -->
-<script src="js/dz.ajax.js"></script><!-- AJAX -->
-<script src="js/custom.js"></script><!-- CUSTOM JS -->
+    // Handle form submission
+    bookUploadForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const title = document.getElementById("book-title").value.trim();
+        const author = document.getElementById("book-author").value.trim();
+        const description = document.getElementById("book-description").value.trim();
+        const category = document.getElementById("category").value;
+        const type = bookTypeDropdown.value;
+        const image = document.getElementById("image-upload").files[0];
+        let file = null;
+
+        if (type !== "epub") {
+            file = document.getElementById("file-upload").files[0];
+        }
+
+        // Validation check
+        if (!title || !author || !description || !category || !image) {
+            errorMessage.textContent = "Please fill in all required fields!";
+            errorMessage.classList.remove("d-none");
+            errorMessage.style.display = "block";
+            return;
+        } else {
+            errorMessage.classList.add("d-none");
+        }
+
+        // Create a new book object
+        const newBook = {
+            title,
+            author,
+            description,
+            category,
+            type,
+            image: URL.createObjectURL(image), // Create a URL for the uploaded image
+            file: file ? file.name : null,
+            
+        };
+
+        // Save book to localStorage
+        let books = JSON.parse(localStorage.getItem("books")) || [];
+        books.push(newBook);
+        localStorage.setItem("books", JSON.stringify(books));
+
+        // Show success message
+        successMessage.classList.remove("d-none");
+        successMessage.style.display = "block";
+
+        // Redirect to book list page after 2 seconds
+        setTimeout(() => {
+            window.location.href = "books-list.html";
+             // Redirect to the books list page
+        }, 2000);
+    });
+});
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="vendor/counter/waypoints-min.js"></script>
+    <script src="vendor/counter/counterup.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="js/dz.carousel.js"></script>
+    <script src="js/dz.ajax.js"></script>
+    
+
 <style>
     /* styles.css */
 body {
