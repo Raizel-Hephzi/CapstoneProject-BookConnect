@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
               if (isAdmin) {
                 window.location.href = "admin-dashboard.html"
               } else {
-                window.location.href = "index.html"
+                window.location.href = "index-home.html"
               }
             }, 2000)
           } else if (formType.includes("admin-signup")) {
