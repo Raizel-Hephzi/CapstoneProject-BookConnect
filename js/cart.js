@@ -675,3 +675,227 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+    // Load cart items
+    loadCartItems()
+  
+    // Add event listener for "Clear Cart" button
+    const clearCartBtn = document.getElementById("clear-cart")
+    if (clearCartBtn) {
+      clearCartBtn.addEventListener("click", () => {
+        clearCart()
+      })
+    }
+  
+    // Initialize cart count
+    updateCartCount()
+  })
+  
+  // Function to load cart items
+  function loadCartItems() {
+    const cartItemsContainer = document.getElementById("cart-items")
+    if (!cartItemsContainer) return
+  
+    // Get cart items from localStorage
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+  
+    // Check if cart is empty
+    if (cartItems.length === 0) {
+      cartItemsContainer.innerHTML = `
+              <div class="cart-empty">
+                  <i class="fas fa-shopping-cart"></i>
+                  <h3>Your cart is empty</h3>
+                  <p>Looks like you haven't added any books to your cart yet.</p>
+                  <a href="books-grid-view.html" class="btn btn-primary">
+                      <i class="fas fa-book me-2"></i> Browse Books
+                  </a>
+              </div>
+          `
+  
+      // Hide totals and checkout button
+      const cartSummary = document.querySelector(".cart-summary")
+      if (cartSummary) {
+        cartSummary.style.display = "none"
+      }
+  
+      return
+    }
+  
+    // Display cart items
+    let cartHTML = ""
+    let subtotal = 0
+  
+    cartItems.forEach((item, index) => {
+      const itemTotal = item.price * item.quantity
+      subtotal += itemTotal
+  
+      cartHTML += `
+              <div class="cart-item d-flex align-items-center">
+                  <div class="cart-item-image me-4">
+                      <img src="${item.image}" alt="${item.title}" class="img-fluid">
+                  </div>
+                  <div class="cart-item-details flex-grow-1">
+                      <h6>${item.title}</h6>
+                      <p class="cart-item-author">${item.author}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                          <span class="cart-item-price">₵${item.price.toFixed(2)}</span>
+                          <div class="quantity-control">
+                              <button type="button" class="quantity-btn decrease-quantity" data-index="${index}">-</button>
+                              <input type="text" class="quantity-input" value="${item.quantity}" readonly>
+                              <button type="button" class="quantity-btn increase-quantity" data-index="${index}">+</button>
+                          </div>
+                          <span class="cart-item-subtotal">₵${itemTotal.toFixed(2)}</span>
+                          <button type="button" class="remove-item" data-index="${index}">
+                              <i class="fas fa-times"></i>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          `
+    })
+  
+    cartItemsContainer.innerHTML = cartHTML
+  
+    // Calculate and display totals
+    const tax = subtotal * 0.05 // 5% tax
+    const shipping = subtotal > 0 ? 5.0 : 0.0 // $5 shipping fee
+    const total = subtotal + tax + shipping
+  
+    // Update summary
+    document.getElementById("cart-subtotal").textContent = `₵${subtotal.toFixed(2)}`
+    document.getElementById("cart-tax").textContent = `₵${tax.toFixed(2)}`
+    document.getElementById("cart-shipping").textContent = `₵${shipping.toFixed(2)}`
+    document.getElementById("cart-total").textContent = `₵${total.toFixed(2)}`
+  
+    // Add event listeners for quantity buttons and remove buttons
+    addCartEventListeners()
+  }
+  
+  // Function to add event listeners to cart elements
+  function addCartEventListeners() {
+    // Quantity decrease buttons
+    const decreaseButtons = document.querySelectorAll(".decrease-quantity")
+    decreaseButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const index = Number.parseInt(this.dataset.index)
+        updateItemQuantity(index, -1)
+      })
+    })
+  
+    // Quantity increase buttons
+    const increaseButtons = document.querySelectorAll(".increase-quantity")
+    increaseButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const index = Number.parseInt(this.dataset.index)
+        updateItemQuantity(index, 1)
+      })
+    })
+  
+    // Remove item buttons
+    const removeButtons = document.querySelectorAll(".remove-item")
+    removeButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const index = Number.parseInt(this.dataset.index)
+        removeCartItem(index)
+      })
+    })
+  }
+  
+  // Function to update item quantity
+  function updateItemQuantity(index, change) {
+    // Get cart items
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+  
+    // Update quantity
+    cartItems[index].quantity += change
+  
+    // Remove item if quantity is 0 or less
+    if (cartItems[index].quantity <= 0) {
+      cartItems.splice(index, 1)
+    }
+  
+    // Save updated cart
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+  
+    // Reload cart items
+    loadCartItems()
+  
+    // Update cart count
+    updateCartCount()
+  }
+  
+  // Function to remove cart item
+  function removeCartItem(index) {
+    // Get cart items
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+  
+    // Remove item
+    cartItems.splice(index, 1)
+  
+    // Save updated cart
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+  
+    // Reload cart items
+    loadCartItems()
+  
+    // Update cart count
+    updateCartCount()
+  
+    // Show notification
+    showNotification("Item removed from cart", "success")
+  }
+  
+  // Function to clear cart
+  function clearCart() {
+    // Clear cart in localStorage
+    localStorage.removeItem("cartItems")
+  
+    // Reload cart items
+    loadCartItems()
+  
+    // Update cart count
+    updateCartCount()
+  
+    // Show notification
+    showNotification("Cart has been cleared", "success")
+  }
+  
+  // Function to update cart count in header
+  function updateCartCount() {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+    const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
+  
+    // Update all elements with class 'cart-count'
+    const cartCountElements = document.querySelectorAll(".cart-count")
+    cartCountElements.forEach((element) => {
+      element.textContent = totalItems
+    })
+  }
+  
+  // Function to show notification
+  function showNotification(message, type) {
+    // Create notification element
+    const notification = document.createElement("div")
+    notification.className = "cart-notification"
+  
+    if (type === "error") {
+      notification.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`
+      notification.style.background = "linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%)"
+    } else {
+      notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`
+    }
+  
+    // Add to body
+    document.body.appendChild(notification)
+  
+    // Remove after 3 seconds
+    setTimeout(() => {
+      notification.style.opacity = "0"
+      notification.style.transform = "translateX(100%)"
+      setTimeout(() => {
+        notification.remove()
+      }, 300)
+    }, 3000)
+  }
+  
+  

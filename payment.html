@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	<meta name="description" content="Book-Connect-Book Store Ecommerce Website"/>
+	<meta property="og:title" content="Book-Connect-Book Store Ecommerce Website"/>
+	<meta property="og:description" content="Book-Connect-Book Store Ecommerce Website"/>
+	<meta property="og:image" content="social-image.png"/>
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- FAVICONS ICON -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+	
+	<!-- PAGE TITLE HERE -->
+	<title>Book-Connect - Payment</title>
+	
+	<!-- MOBILE SPECIFIC -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="icons/fontawesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/checkout-styles.css">
+	<link rel="stylesheet" type="text/css" href="css/payment-styles.css">
+	
+	<!-- GOOGLE FONTS-->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="page-wraper">
+	<div id="loading-area" class="preloader-wrapper-1">
+		<div class="preloader-inner">
+			<div class="preloader-shade"></div>
+			<div class="preloader-wrap"></div>
+			<div class="preloader-wrap wrap2"></div>
+			<div class="preloader-wrap wrap3"></div>
+			<div class="preloader-wrap wrap4"></div>
+			<div class="preloader-wrap wrap5"></div>
+		</div> 
+	</div>
+	<!-- Header -->
+	<header class="site-header mo-left header style-1">
+		<!-- Main Header -->
+		<div class="header-info-bar">
+			<div class="container clearfix">
+				<!-- Website Logo -->
+				<div class="logo-header logo-dark">
+					<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+				</div>
+				
+				<!-- EXTRA NAV -->
+				<div class="extra-nav">
+					<div class="extra-cell">
+						<ul class="navbar-nav header-right">
+							<li class="nav-item">
+								<a class="nav-link" href="wishlist.html">
+									<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+									<span class="badge">21</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<button type="button" class="nav-link box cart-btn">
+									<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+									<span class="badge cart-count">0</span>
+								</button>
+								<ul class="dropdown-menu cart-list">
+									<!-- Cart items will be loaded here via JavaScript -->
+								</ul>
+							</li>
+							<li class="nav-item dropdown profile-dropdown  ms-4">
+								
+									<div class="extra-nav">
+										<div class="extra-cell">
+											<a href="book-upload.html" class="btn btn-primary btnhover">Upload Book</a>	
+										</div>
+									</div>
+								
+								<div class="dropdown-menu py-0 dropdown-menu-end">
+									<div class="dropdown-header">
+										<h6 class="m-0">Brian</h6>
+										<span>brian@example.com</span>
+									</div>
+									<div class="dropdown-body">
+										<a href="my-profile.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
+											<div>
+												<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2m0 10c2.7 0 5.8 1.29 6 2H6c.23-.72 3.31-2 6-2m0-12C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+												<span class="ms-2">Profile</span>
+											</div>
+										</a>
+										<a href="shop-cart.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
+											<div>
+												<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+												<span class="ms-2">My Order</span>
+											</div>
+										</a>
+										<a href="wishlist.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
+											<div>
+												<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+												<span class="ms-2">Wishlist</span>
+											</div>
+										</a>
+									</div>
+									<div class="dropdown-footer">
+										<a class="btn btn-primary w-100 btnhover btn-sm" href="shop-login.html">Log Out</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+						
+					</div>
+				</div>
+				
+				<!-- header search nav -->
+				<div class="header-search-nav">
+					<form class="header-item-search">
+						<div class="input-group search-input">
+							
+							<input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
+							<button class="btn" type="button"><i class="flaticon-loupe"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- Main Header End -->
+		
+		<!-- Main Header -->
+		<div class="sticky-header main-bar-wraper navbar-expand-lg">
+			<div class="main-bar clearfix">
+				<div class="container clearfix">
+					<!-- Website Logo -->
+					<div class="logo-header logo-dark">
+						<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+					</div>
+					
+					<!-- Nav Toggle Button -->
+					<button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					
+					
+					
+					<!-- Main Nav -->
+					<div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+						<div class="logo-header logo-dark">
+							<a href="index.html"><img src="images/logo.png" alt=""></a>
+						</div>
+						<form class="search-input">
+							<div class="input-group">
+								<input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
+								<button class="btn" type="button"><i class="flaticon-loupe"></i></button>
+							</div>
+						</form>
+						<ul class="nav navbar-nav">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="books-grid-view.html">Browse Books </a></li>
+							<li><a href="about-us.html">About </a></li>
+							<li><a href="contact-us.html">Contact Us</a></li>
+						</ul>
+						<div class="dz-social-icon">
+							<ul>
+								<li><a class="fab fa-facebook-f" target="_blank" href="#"></a></li>
+								<li><a class="fab fa-twitter" target="_blank" href="#"></a></li>
+								<li><a class="fab fa-linkedin-in" target="_blank" href="#"></a></li>
+								<li><a class="fab fa-instagram" target="_blank" href="#"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main Header End -->
+		
+	</header>
+	<!-- Header End -->
+	
+	<div class="page-content bg-grey">
+		<div class="container">
+            <div class="checkout-progress-bar">
+                <div class="progress-step active">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <span class="step-label">Cart</span>
+                </div>
+                <div class="progress-line active"></div>
+                <div class="progress-step active">
+                    <div class="step-icon">
+                        <i class="fas fa-address-card"></i>
+                    </div>
+                    <span class="step-label">Details</span>
+                </div>
+                <div class="progress-line active"></div>
+                <div class="progress-step active">
+                    <div class="step-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <span class="step-label">Payment</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span class="step-label">Complete</span>
+                </div>
+            </div>
+            
+            <h1 class="checkout-page-title text-center">Secure Payment</h1>
+        </div>
+        
+        <section class="content-inner-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="payment-screen slide-up">
+                            <div class="payment-header">
+                                <h4><i class="fas fa-lock"></i> Payment Details</h4>
+                                <div class="payment-steps">
+                                    <div class="payment-step active">
+                                        <div class="step-number">1</div>
+                                        <span class="step-label">Method</span>
+                                    </div>
+                                    <div class="payment-step">
+                                        <div class="step-number">2</div>
+                                        <span class="step-label">Details</span>
+                                    </div>
+                                    <div class="payment-step">
+                                        <div class="step-number">3</div>
+                                        <span class="step-label">Confirm</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment-body">
+                                <div class="payment-methods-tabs">
+                                    <div class="payment-method-tab active" data-method="card" data-form="cardForm">
+                                        <i class="far fa-credit-card"></i>
+                                        <span>Credit Card</span>
+                                    </div>
+                                    <div class="payment-method-tab" data-method="momo" data-form="momoForm">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Mobile Money</span>
+                                    </div>
+                                    <div class="payment-method-tab" data-method="paypal" data-form="paypalForm">
+                                        <i class="fab fa-paypal"></i>
+                                        <span>PayPal</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Credit Card Form -->
+                                <div id="cardForm" class="payment-form-container active">
+                                    <div class="card-preview">
+                                        <div class="card-background-shape"></div>
+                                        <div class="card-background-shape"></div>
+                                        <div class="card-content">
+                                            <div class="card-chip"></div>
+                                            <div class="card-number-preview" id="cardNumberPreview">•••• •••• •••• ••••</div>
+                                            <div class="card-details-row">
+                                                <div class="card-holder">
+                                                    <div class="card-holder-preview">Card Holder</div>
+                                                    <div class="card-holder-name" id="cardHolderName">YOUR NAME</div>
+                                                </div>
+                                                <div class="card-expiry">
+                                                    <div class="card-expiry-preview">Expires</div>
+                                                    <div class="card-expiry-date" id="cardExpiryDate">MM/YY</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-brand-logo" id="cardBrandLogo">
+                                            <i class="far fa-credit-card"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <form>
+                                        <div class="card-input-container">
+                                            <label for="cardNumber">Card Number</label>
+                                            <input type="text" id="cardNumber" class="card-input" placeholder="1234 5678 9012 3456" maxlength="19">
+                                            <i class="far fa-credit-card card-icon"></i>
+                                            <i id="cardTypeIcon" class="card-type-icon"></i>
+                                            <div id="cardNumberError" class="input-error-message">Please enter a valid card number</div>
+                                        </div>
+                                        
+                                        <div class="card-input-container">
+                                            <label for="cardHolder">Cardholder Name</label>
+                                            <input type="text" id="cardHolder" class="card-input" placeholder="John Doe">
+                                            <i class="far fa-user card-icon"></i>
+                                            <div id="cardHolderError" class="input-error-message">Please enter the cardholder name</div>
+                                        </div>
+                                        
+                                        <div class="card-row">
+                                            <div class="card-col">
+                                                <div class="card-input-container">
+                                                    <label for="cardExpiry">Expiry Date</label>
+                                                    <input type="text" id="cardExpiry" class="card-input" placeholder="MM/YY" maxlength="5">
+                                                    <i class="far fa-calendar-alt card-icon"></i>
+                                                    <div id="cardExpiryError" class="input-error-message">Please enter a valid expiry date</div>
+                                                </div>
+                                            </div>
+                                            <div class="card-col">
+                                                <div class="card-input-container">
+                                                    <label for="cardCvv">CVV</label>
+                                                    <input type="text" id="cardCvv" class="card-input" placeholder="123" maxlength="4">
+                                                    <i class="fas fa-question-circle card-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="3-digit code on the back of your card"></i>
+                                                    <div id="cardCvvError" class="input-error-message">Please enter a valid CVV</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="save-card-option">
+                                            <input type="checkbox" id="saveCard" class="save-card-checkbox">
+                                            <label for="saveCard">Save card for future purchases</label>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <!-- Mobile Money Form -->
+                                <div id="momoForm" class="payment-form-container">
+                                    <div class="mobile-money-form">
+                                        <div class="provider-options">
+                                            <div class="provider-option">
+                                                <input type="radio" name="mobileProvider" id="mtn" value="mtn">
+                                                <label for="mtn" class="provider-label">
+                                                    <div class="provider-icon">
+                                                        <i class="fas fa-mobile-alt"></i>
+                                                    </div>
+                                                    <span class="provider-name">MTN Mobile Money</span>
+                                                </label>
+                                            </div>
+                                            <div class="provider-option">
+                                                <input type="radio" name="mobileProvider" id="vodafone" value="vodafone">
+                                                <label for="vodafone" class="provider-label">
+                                                    <div class="provider-icon">
+                                                        <i class="fas fa-mobile-alt"></i>
+                                                    </div>
+                                                    <span class="provider-name">Vodafone Cash</span>
+                                                </label>
+                                            </div>
+                                            <div class="provider-option">
+                                                <input type="radio" name="mobileProvider" id="airtel" value="airtel">
+                                                <label for="airtel" class="provider-label">
+                                                    <div class="provider-icon">
+                                                        <i class="fas fa-mobile-alt"></i>
+                                                    </div>
+                                                    <span class="provider-name">AirtelTigo Money</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div id="providerError" class="input-error-message">Please select a mobile money provider</div>
+                                        
+                                        <div class="mobile-number-container">
+                                            <label for="mobileNumber">Mobile Number</label>
+                                            <div class="mobile-input-group">
+                                                <div class="country-code">+233</div>
+                                                <input type="tel" id="mobileNumber" class="mobile-input" placeholder="XX XXX XXXX" maxlength="12">
+                                            </div>
+                                            <div id="mobileNumberError" class="input-error-message">Please enter a valid mobile number</div>
+                                        </div>
+                                        
+                                        <div class="mobile-instructions">
+                                            <h5><i class="fas fa-info-circle"></i> How to Complete Payment</h5>
+                                            <div class="instruction-step">
+                                                <div class="step-number">1</div>
+                                                <div class="step-text">Enter your mobile money number and click "Pay Now"</div>
+                                            </div>
+                                            <div class="instruction-step">
+                                                <div class="step-number">2</div>
+                                                <div class="step-text">You will receive a prompt on your phone to authorize the payment</div>
+                                            </div>
+                                            <div class="instruction-step">
+                                                <div class="step-number">3</div>
+                                                <div class="step-text">Enter your mobile money PIN to confirm the payment</div>
+                                            </div>
+                                            <div class="instruction-step">
+                                                <div class="step-number">4</div>
+                                                <div class="step-text">Once confirmed, you will be redirected to the order confirmation page</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- PayPal Form -->
+                                <div id="paypalForm" class="payment-form-container">
+                                    <div class="paypal-form">
+                                        <div class="paypal-logo">
+                                            <i class="fab fa-paypal"></i>
+                                        </div>
+                                        <p class="paypal-message">You will be redirected to PayPal to complete your payment securely.</p>
+                                        
+                                        <div class="paypal-benefits">
+                                            <div class="paypal-benefit">
+                                                <div class="benefit-icon">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                </div>
+                                                <div class="benefit-text">Secure Payment</div>
+                                            </div>
+                                            <div class="paypal-benefit">
+                                                <div class="benefit-icon">
+                                                    <i class="fas fa-credit-card"></i>
+                                                </div>
+                                                <div class="benefit-text">Pay with Credit Card or Balance</div>
+                                            </div>
+                                            <div class="paypal-benefit">
+                                                <div class="benefit-icon">
+                                                    <i class="fas fa-undo"></i>
+                                                </div>
+                                                <div class="benefit-text">Buyer Protection</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <button id="paypalButton" class="paypal-button">
+                                            <i class="fab fa-paypal"></i> Pay with PayPal
+                                        </button>
+                                        
+                                        <div class="paypal-footer">
+                                            By clicking "Pay with PayPal", you agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="security-badges">
+                                    <div class="security-badge">
+                                        <i class="fas fa-lock"></i>
+                                        <span>Secure Payment</span>
+                                    </div>
+                                    <div class="security-badge">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Data Protection</span>
+                                    </div>
+                                    <div class="security-badge">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Verified by Visa</span>
+                                    </div>
+                                    <div class="security-badge">
+                                        <i class="fab fa-cc-mastercard"></i>
+                                        <span>MasterCard SecureCode</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-actions">
+                                    <button id="backButton" class="btn-back">
+                                        <i class="fas fa-arrow-left"></i> Back
+                                    </button>
+                                    <button id="payButton" class="btn-pay">
+                                        Pay Now <i class="fas fa-lock"></i>
+                                        <span class="payment-amount" id="paymentAmount">₵0.00</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="order-summary fade-in">
+                            <div class="summary-header">
+                                <h4>Order Summary</h4>
+                                <span class="item-count" id="summary-item-count">0 items</span>
+                            </div>
+                            
+                            <div class="summary-items" id="summary-items">
+                                <!-- Cart items will be loaded here via JavaScript -->
+                            </div>
+                            
+                            <div class="summary-totals">
+                                <div class="summary-item">
+                                    <span>Subtotal</span>
+                                    <span id="summary-subtotal">₵0.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Shipping</span>
+                                    <span id="summary-shipping">₵5.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Tax</span>
+                                    <span id="summary-tax">₵0.00</span>
+                                </div>
+                                <div class="summary-item discount-item d-none">
+                                    <span>Discount</span>
+                                    <span id="summary-discount">-₵0.00</span>
+                                </div>
+                                <div class="summary-item summary-total">
+                                    <span>Total</span>
+                                    <span id="summary-total">₵5.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="secure-checkout">
+                                <div class="secure-icons">
+                                    <i class="fas fa-lock"></i>
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-amex"></i>
+                                    <i class="fab fa-paypal"></i>
+                                </div>
+                                <p>Secure Checkout</p>
+                            </div>
+                        </div>
+                        
+                        <div class="need-help-box mt-4">
+                            <h5><i class="fas fa-question-circle me-2"></i> Need Help?</h5>
+                            <p>Have questions about your payment?</p>
+                            <a href="contact-us.html" class="btn btn-outline-primary btn-sm">Contact Support</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+	</div>
+	
+    <!-- Payment Processing Animation -->
+    <div id="paymentProcessing" class="payment-processing">
+        <div class="processing-spinner"></div>
+        <div class="processing-text">Processing Your Payment</div>
+        <div class="processing-subtext">Please do not close this window...</div>
+    </div>
+    
+	<!-- Footer -->
+	<footer class="site-footer style-1">
+		<!-- Footer Category -->
+		<div class="footer-category">
+			<div class="container">
+				<div class="category-toggle">
+					<a href="javascript:void(0);" class="toggle-btn">Books categories</a>
+					<div class="toggle-items row book-grid-row">
+						<div class="footer-col-book">
+							<ul>
+								<li><a href="books-grid-view.html">Architecture</a></li>
+								<li><a href="books-grid-view.html">Art</a></li>
+								<li><a href="books-grid-view.html">Action</a></li>
+								<li><a href="books-grid-view.html">Biography</a></li>
+								<li><a href="books-grid-view.html">Body, Mind & Spirit</a></li>
+								<li><a href="books-grid-view.html">Business & Economics</a></li>
+								<li><a href="books-grid-view.html">Children Fiction</a></li>
+								<li><a href="books-grid-view.html">Children Non-Fiction</a></li>
+								<li><a href="books-grid-view.html">Comics & Graphics</a></li>
+								<li><a href="books-grid-view.html">Cooking</a></li>
+								<li><a href="books-grid-view.html">Crafts & Hobbies</a></li>
+								<li><a href="books-grid-view.html">Design</a></li>
+								<li><a href="books-grid-view.html">Drama</a></li>
+								<li><a href="books-grid-view.html">Education</a></li>
+								<li><a href="books-grid-view.html">Family & Relationships</a></li>
+								<li><a href="books-grid-view.html">Fiction</a></li>
+								<li><a href="books-grid-view.html">Foreign Language</a></li>
+								<li><a href="books-grid-view.html">Games</a></li>
+								<li><a href="books-grid-view.html">Gardening</a></li>
+								<li><a href="books-grid-view.html">Health & Fitness</a></li>
+								<li><a href="books-grid-view.html">History</a></li>
+								<li><a href="books-grid-view.html">House & Home</a></li>
+								<li><a href="books-grid-view.html">Humor</a></li>
+								<li><a href="books-grid-view.html">Literary Collections</a></li>
+								<li><a href="books-grid-view.html">Mathematics</a></li>
+								<li><a href="books-grid-view.html">Medical</a></li>
+								<li><a href="books-grid-view.html">Nature</a></li>
+								<li><a href="books-grid-view.html">Performing Arts</a></li>
+								<li><a href="books-grid-view.html">Pets</a></li>
+								<li><a href="books-grid-view.html">Show others</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer Category End -->
+		
+		<!-- Footer Top -->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-3 col-lg-12">
+						<div class="widget widget_about">
+							<div class="footer-logo logo-white">
+								<a href="index.html"><img src="images/logo.png" alt=""></a> 
+							</div>
+							<p class="text">BookConnect – Swap books, connect, and save! 🚀📚</p>
+							<div class="dz-social-icon style-1">
+								<ul>
+									<li><a href="#" target="_blank" ><i class="fa-brands fa-facebook-f"></i></a></li>
+									<li><a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+									<li><a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+									<li><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-4">
+						<div class="widget widget_services">
+							<h5 class="footer-title">Our Links</h5>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+						<li><a href="books-grid-view.html">Browse Books </a></li>
+						<li><a href="about-us.html">About </a></li>
+						<li><a href="contact-us.html">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-3 col-sm-4 col-4">
+						<div class="widget widget_services">
+							<h5 class="footer-title">BookConnect</h5>
+							<ul>
+								<li><a href="how-it-works.html">How It Works</a></li>
+								<li><a href="#">Browse Books</a></li>
+								<li><a href="#">Community</a></li>
+							</ul>   
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-4">
+						<div class="widget widget_services">
+							<h5 class="footer-title">Resources</h5>
+							<ul>
+								<li><a href="help-desk.html">Help Center</a></li>
+								<li><a href="shop-cart.html">Shop Cart</a></li>
+								<li><a href="shop-login.html">Login</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+						<div class="widget widget_getintuch">
+							<h5 class="footer-title">Get in Touch With Us</h5>
+							<ul>
+								<li>
+									<i class="flaticon-placeholder"></i>
+									<span>KNUST - Kumasi</span>
+								</li>
+								<li>
+									<i class="flaticon-phone"></i>
+									<span>+233 540 0000</span>
+								</li>
+								<li>
+									<i class="flaticon-email"></i> 
+									<span>support@bookconnect.com<br>
+									info@bookconnect.com</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer Top End -->
+		
+		<!-- Footer Bottom -->
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row fb-inner">
+					<div class="col-lg-6 col-md-12 text-start"> 
+						<p class="copyright-text">BookConnect Book Store Ecommerce Website - © <span class="current-year">2025</span> All Rights Reserved</p>
+					</div>
+					<div class="col-lg-6 col-md-12 text-end"> 
+						<p>Made with <span class="heart"></span> by <a href="#">Group 15</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer Bottom End -->
+		
+	</footer>
+	<!-- Footer End -->
+	
+	<button class="scroltop" type="button"><i class="fas fa-arrow-up"></i></button>
+</div>
+
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="js/jquery.min.js"></script><!-- JQUERY MIN JS -->
+<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP MIN JS -->
+<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script><!-- BOOTSTRAP SELECT MIN JS -->
+<script src="vendor/swiper/swiper-bundle.min.js"></script><!-- SWIPER JS -->
+<script src="js/custom.js"></script><!-- CUSTOM JS -->
+<script src="js/enhanced-payment.js"></script><!-- ENHANCED PAYMENT JS -->
+
+</body>
+</html>
+

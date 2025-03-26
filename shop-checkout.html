@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +17,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
 	
 	<!-- PAGE TITLE HERE -->
-	<title>Book-Connect-Book Store Ecommerce Website</title>
+	<title>Book-Connect - Checkout</title>
 	
 	<!-- MOBILE SPECIFIC -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,27 +26,28 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="icons/fontawesome/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-	
+	<link rel="stylesheet" type="text/css" href="vendor/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/checkout-styles.css">
 	
 	<!-- GOOGLE FONTS-->
 	<link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-
 </head>
 
 <body>
-	<div class="page-wraper">
-		<div id="loading-area" class="preloader-wrapper-1">
-			<div class="preloader-inner">
-				<div class="preloader-shade"></div>
-				<div class="preloader-wrap"></div>
-				<div class="preloader-wrap wrap2"></div>
-				<div class="preloader-wrap wrap3"></div>
-				<div class="preloader-wrap wrap4"></div>
-				<div class="preloader-wrap wrap5"></div>
-			</div> 
-		</div>
+<div class="page-wraper">
+	<div id="loading-area" class="preloader-wrapper-1">
+		<div class="preloader-inner">
+			<div class="preloader-shade"></div>
+			<div class="preloader-wrap"></div>
+			<div class="preloader-wrap wrap2"></div>
+			<div class="preloader-wrap wrap3"></div>
+			<div class="preloader-wrap wrap4"></div>
+			<div class="preloader-wrap wrap5"></div>
+		</div> 
+	</div>
 	<!-- Header -->
 	<header class="site-header mo-left header style-1">
 		<!-- Main Header -->
@@ -55,7 +55,7 @@
 			<div class="container clearfix">
 				<!-- Website Logo -->
 				<div class="logo-header logo-dark">
-					<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+					<a href="index-home.html"><img src="images/logo.png" alt="logo"></a>
 				</div>
 				
 				<!-- EXTRA NAV -->
@@ -71,72 +71,24 @@
 							<li class="nav-item">
 								<button type="button" class="nav-link box cart-btn">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-									<span class="badge">5</span>
+									<span class="badge cart-count">0</span>
 								</button>
 								<ul class="dropdown-menu cart-list">
-									<li class="cart-item">
-										<div class="media"> 
-											<div class="media-left"> 
-												<a href="books-detail.html"> 
-													<img alt="" class="media-object" src="images/books/small/pic1.jpg"> 
-												</a> 
-											</div> 
-											<div class="media-body"> 
-												<h6 class="dz-title"><a href="books-detail.html" class="media-heading">Real Life</a></h6>
-												<span class="dz-price">₵28.00</span>
-												<span class="item-close">&times;</span>
-											</div> 
-										</div>
-									</li>
-									<li class="cart-item">
-										<div class="media"> 
-											<div class="media-left"> 
-												<a href="books-detail.html"> 
-													<img alt="" class="media-object" src="images/books/small/pic2.jpg"> 
-												</a> 
-											</div> 
-											<div class="media-body"> 
-												<h6 class="dz-title"><a href="books-detail.html" class="media-heading">Home</a></h6>
-												<span class="dz-price">₵28.00</span>
-												<span class="item-close">&times;</span>
-											</div> 
-										</div>
-									</li>
-									<li class="cart-item">
-										<div class="media"> 
-											<div class="media-left"> 
-												<a href="books-detail.html"> 
-													<img alt="" class="media-object" src="images/books/small/pic3.jpg"> 
-												</a> 
-											</div> 
-											<div class="media-body"> 
-												<h6 class="dz-title"><a href="books-detail.html" class="media-heading">Such a fun age</a></h6>
-												<span class="dz-price">₵28.00</span>
-												<span class="item-close">&times;</span>
-											</div> 
-										</div>
-									</li>
-									<li class="cart-item text-center">
-										<h6 class="text-secondary">Totle = ₵500</h6>
-									</li>
-									<li class="text-center d-flex">
-										<a href="shop-cart.html" class="btn btn-sm btn-primary me-2 btnhover w-100">View Cart</a>
-										<a href="shop-checkout.html" class="btn btn-sm btn-outline-primary btnhover w-100">Checkout</a>
-									</li>
+									<!-- Cart items will be loaded here via JavaScript -->
 								</ul>
 							</li>
 							<li class="nav-item dropdown profile-dropdown  ms-4">
-								<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									<img src="images/profile1.jpg" alt="/">
-									<div class="profile-info">
-										<h6 class="title">Brian</h6>
-										<span>info@gmail.com</span>
+								
+									<div class="extra-nav">
+										<div class="extra-cell">
+											<a href="book-upload.html" class="btn btn-primary btnhover">Upload Book</a>	
+										</div>
 									</div>
-								</a>
+								
 								<div class="dropdown-menu py-0 dropdown-menu-end">
 									<div class="dropdown-header">
 										<h6 class="m-0">Brian</h6>
-										<span>info@gmail.com</span>
+										<span>brian@example.com</span>
 									</div>
 									<div class="dropdown-body">
 										<a href="my-profile.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
@@ -164,6 +116,7 @@
 								</div>
 							</li>
 						</ul>
+						
 					</div>
 				</div>
 				
@@ -171,22 +124,7 @@
 				<div class="header-search-nav">
 					<form class="header-item-search">
 						<div class="input-group search-input">
-							<select class="default-select">
-								<option>Category</option>
-								<option>Photography </option>
-								<option>Arts</option>
-								<option>Adventure</option>
-								<option>Action</option>
-								<option>Games</option>
-								<option>Movies</option>
-								<option>Comics</option>
-								<option>Biographies</option>
-								<option>Children’s Books</option>
-								<option>Historical</option>
-								<option>Contemporary</option>
-								<option>Classics</option>
-								<option>Education</option>
-							</select>
+							
 							<input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
 							<button class="btn" type="button"><i class="flaticon-loupe"></i></button>
 						</div>
@@ -202,7 +140,7 @@
 				<div class="container clearfix">
 					<!-- Website Logo -->
 					<div class="logo-header logo-dark">
-						<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+						<a href="index-home.html"><img src="images/logo.png" alt="logo"></a>
 					</div>
 					
 					<!-- Nav Toggle Button -->
@@ -212,24 +150,12 @@
 						<span></span>
 					</button>
 					
-					<!-- EXTRA NAV -->
-					<!-- <div class="extra-nav">
-						<div class="extra-cell">
-							<a href="contact-us.html" class="btn btn-primary btnhover">Sign In Now</a>	
-						</div>
-					</div>
-					<div class="extra-nav-01">
-						<div class="extra-cell-01">
-							<a href="contact-us.html" class="btn btn-primary btnhover">Log In</a>	
-						</div>
-					</div> -->
-
 					
 					
 					<!-- Main Nav -->
 					<div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
 						<div class="logo-header logo-dark">
-							<a href="index.html"><img src="images/logo.png" alt=""></a>
+							<a href="index-home.html"><img src="images/logo.png" alt=""></a>
 						</div>
 						<form class="search-input">
 							<div class="input-group">
@@ -238,18 +164,17 @@
 							</div>
 						</form>
 						<ul class="nav navbar-nav">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="index-home.html">Home</a></li>
 							<li><a href="books-grid-view.html">Browse Books </a></li>
 							<li><a href="about-us.html">About </a></li>
 							<li><a href="contact-us.html">Contact Us</a></li>
 						</ul>
-						</ul>
 						<div class="dz-social-icon">
 							<ul>
 								<li><a class="fab fa-facebook-f" target="_blank" href="#"></a></li>
-								<li><a class="fab fa-twitter" target="_blank" href="https://twitter.com/dexignzones"></a></li>
-								<li><a class="fab fa-linkedin-in" target="_blank" href="https://www.linkedin.com/showcase/3686700/admin/"></a></li>
-								<li><a class="fab fa-instagram" target="_blank" href="https://www.instagram.com/website_templates__/"></a></li>
+								<li><a class="fab fa-twitter" target="_blank" href="#"></a></li>
+								<li><a class="fab fa-linkedin-in" target="_blank" href="#"></a></li>
+								<li><a class="fab fa-instagram" target="_blank" href="#"></a></li>
 							</ul>
 						</div>
 					</div>
@@ -260,420 +185,594 @@
 		
 	</header>
 	<!-- Header End -->
-		
-		<div class="page-content">
-			<!-- inner page banner -->
-			<div class="dz-bnr-inr overlay-secondary-dark dz-bnr-inr-sm" style="background-image:url(images/background/bg3.jpg);">
-				<div class="container">
-					<div class="dz-bnr-inr-entry">
-						<h1>Checkout</h1>
-						<nav aria-label="breadcrumb" class="breadcrumb-row">
-							<ul class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html"> Home</a></li>
-								<li class="breadcrumb-item">Checkout</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</div>
-			<!-- inner page banner End-->
-			
-			<!-- contact area -->
-			<section class="content-inner-1">
-				<!-- Product -->
-				<div class="container">
-					<form class="shop-form">
-						<div class="row">
-							<div class="col-lg-6 col-md-6">
-								<div class="widget">
-									<h4 class="widget-title">Billing & Shipping Address</h4>
-									<div class="form-group">
-										<select class="default-select">
-											<option value="1">Åland Islands</option>
-											<option value="2">Afghanistan</option>
-											<option value="3">Albania</option>
-											<option value="4">Algeria</option>
-											<option value="5">Andorra</option>
-											<option value="6">Angola</option>
-											<option value="7">Anguilla</option>
-											<option value="8">Antarctica</option>
-											<option value="9">Antigua and Barbuda</option>
-											<option value="10">Argentina</option>
-											<option value="11">Armenia</option>
-											<option value="12">Aruba</option>
-											<option value="13">Australia</option>
-										</select>	
-									</div>
-									<div class="row">
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="First Name">
-										</div>
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Last Name">
-										</div>
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Company Name">
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Address">
-									</div>
-									<div class="row">
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Apartment, suite, unit etc.">
-										</div>
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Town / City">
-										</div>
-									</div>
-									<div class="row">
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="State / County">
-										</div>
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Postcode / Zip">
-										</div>
-									</div>
-									<div class="row">
-										<div class="form-group col-md-6">
-											<input type="email" class="form-control" placeholder="Email">
-										</div>
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Phone">
-										</div>
-									</div>
-									<button class="btn btn-primary btnhover mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#create-an-account">Create an account <i class="fa fa-arrow-circle-o-down"></i></button>
-									<div id="create-an-account" class="collapse">
-										<p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-										<div class="form-group">
-											<input type="password" class="form-control" placeholder="Password">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6">
-								<button class="btn btn-primary btnhover mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#different-address">Ship to a different address <i class="fa fa-arrow-circle-o-down"></i></button>
-								<div id="different-address" class="collapse">
-									<p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>
-									<div class="form-group">
-										<select class="default-select">
-											<option value="">Åland Islands</option>
-											<option value="">Afghanistan</option>
-											<option value="">Albania</option>
-											<option value="">Algeria</option>
-											<option value="">Andorra</option>
-											<option value="">Angola</option>
-											<option value="">Anguilla</option>
-											<option value="">Antarctica</option>
-											<option value="">Antigua and Barbuda</option>
-											<option value="">Argentina</option>
-											<option value="">Armenia</option>
-											<option value="">Aruba</option>
-											<option value="">Australia</option>
-										</select>	
-									</div>
-									<div class="row">
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="First Name">
-										</div>
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Last Name">
-										</div>
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Company Name">
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Address">
-									</div>
-									<div class="row">
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Apartment, suite, unit etc.">
-										</div>
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Town / City">
-										</div>
-									</div>
-									<div class="row">
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="State / County">
-										</div>
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Postcode / Zip">
-										</div>
-									</div>
-									<div class="row">
-										<div class="form-group col-md-6">
-											<input type="email" class="form-control" placeholder="Email">
-										</div>
-										<div class="form-group col-md-6">
-											<input type="text" class="form-control" placeholder="Phone">
-										</div>
-									</div>
-									<p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-								</div>
-								<div class="form-group">
-									<textarea class="form-control" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
-								</div>
-							
-							</div>
-						</div>
-					</form>
-					<div class="dz-divider bg-gray-dark text-gray-dark icon-center  my-5"><i class="fa fa-circle bg-white text-gray-dark"></i></div>
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="widget">
-								<h4 class="widget-title">Your Order</h4>
-								<table class="table-bordered check-tbl">
-									<thead class="text-center">
-										<tr>
-											<th>IMAGE</th>
-											<th>PRODUCT NAME</th>
-											<th>TOTAL</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td class="product-item-img"><img src="images/books/grid/book3.jpg" alt=""></td>
-											<td class="product-item-name">Prduct Item 5</td>
-											<td class="product-price">₵28.00</td>
-										</tr>
-										<tr>
-											<td class="product-item-img"><img src="images/books/grid/book2.jpg" alt=""></td>
-											<td class="product-item-name">Prduct Item 4</td>
-											<td class="product-price">₵36.00</td>
-										</tr>
-										<tr>
-											<td class="product-item-img"><img src="images/books/grid/book4.jpg" alt=""></td>
-											<td class="product-item-name">Prduct Item 3</td>
-											<td class="product-price">₵28.00</td>
-										</tr>
-										<tr>
-											<td class="product-item-img"><img src="images/books/grid/book5.jpg" alt=""></td>
-											<td class="product-item-name">Prduct Item 2</td>
-											<td class="product-price">₵36.00</td>
-										</tr>
-										<tr>
-											<td class="product-item-img"><img src="images/books/grid/book1.jpg" alt=""></td>
-											<td class="product-item-name">Prduct Item 1</td>
-											<td class="product-price">₵28.00</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<form class="shop-form widget">
-								<h4 class="widget-title">Order Total</h4>
-								<table class="table-bordered check-tbl mb-4">
-									<tbody>
-										<tr>
-											<td>Order Subtotal</td>
-											<td class="product-price">₵125.96</td>
-										</tr>
-										<tr>
-											<td>Shipping</td>
-											<td>Free Shipping</td>
-										</tr>
-										<tr>
-											<td>Coupon</td>
-											<td class="product-price">₵28.00</td>
-										</tr>
-										<tr>
-											<td>Total</td>
-											<td class="product-price-total">₵506.00</td>
-										</tr>
-									</tbody>
-								</table>
-								<h4 class="widget-title">Payment Method</h4>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Name on Card">
-								</div>
-								<div class="form-group">
-									<select class="default-select">
-										<option value="">Credit Card Type</option>
-										<option value="">Another option</option>
-										<option value="">A option</option>
-										<option value="">Potato</option>
-									</select>	
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Credit Card Number">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Card Verification Number">
-								</div>
-								<div class="form-group">
-									<button class="btn btn-primary btnhover" type="button">Place Order Now </button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<!-- Product END -->
-			</section>
-			<!-- contact area End--> 
-		</div>
-		<!-- Footer -->
-		<footer class="site-footer style-1">
-			<!-- Footer Category -->
-			<div class="footer-category">
-				<div class="container">
-					<div class="category-toggle">
-						<a href="javascript:void(0);" class="toggle-btn">Books categories</a>
-						<div class="toggle-items row book-grid-row">
-							<div class="footer-col-book">
-								<ul>
-									<li><a href="books-grid-view.html">Architecture</a></li>
-									<li><a href="books-grid-view.html">Art</a></li>
-									<li><a href="books-grid-view.html">Action</a></li>
-									<li><a href="books-grid-view.html">Biography</a></li>
-									<li><a href="books-grid-view.html">Body, Mind & Spirit</a></li>
-									<li><a href="books-grid-view.html">Business & Economics</a></li>
-									<li><a href="books-grid-view.html">Children Fiction</a></li>
-									<li><a href="books-grid-view.html">Children Non-Fiction</a></li>
-									<li><a href="books-grid-view.html">Comics & Graphics</a></li>
-									<li><a href="books-grid-view.html">Cooking</a></li>
-									<li><a href="books-grid-view.html">Crafts & Hobbies</a></li>
-									<li><a href="books-grid-view.html">Design</a></li>
-									<li><a href="books-grid-view.html">Drama</a></li>
-									<li><a href="books-grid-view.html">Education</a></li>
-									<li><a href="books-grid-view.html">Family & Relationships</a></li>
-									<li><a href="books-grid-view.html">Fiction</a></li>
-									<li><a href="books-grid-view.html">Foreign Language</a></li>
-									<li><a href="books-grid-view.html">Games</a></li>
-									<li><a href="books-grid-view.html">Gardening</a></li>
-									<li><a href="books-grid-view.html">Health & Fitness</a></li>
-									<li><a href="books-grid-view.html">History</a></li>
-									<li><a href="books-grid-view.html">House & Home</a></li>
-									<li><a href="books-grid-view.html">Humor</a></li>
-									<li><a href="books-grid-view.html">Literary Collections</a></li>
-									<li><a href="books-grid-view.html">Mathematics</a></li>
-									<li><a href="books-grid-view.html">Medical</a></li>
-									<li><a href="books-grid-view.html">Nature</a></li>
-									<li><a href="books-grid-view.html">Performing Arts</a></li>
-									<li><a href="books-grid-view.html">Pets</a></li>
-									<li><a href="books-grid-view.html">Show others</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Footer Category End -->
-			
-			<!-- Footer Top -->
-			<div class="footer-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-xl-3 col-lg-12">
-							<div class="widget widget_about">
-								<div class="footer-logo logo-white">
-									<a href="index.html"><img src="images/logo.png" alt=""></a> 
-								</div>
-								<p class="text">Book-Connect is a Book Store Ecommerce Website Template by DexignZone lorem ipsum dolor sit</p>
-								<div class="dz-social-icon style-1">
-									<ul>
-										<li><a href="https://www.facebook.com/dexignzone" target="_blank" ><i class="fa-brands fa-facebook-f"></i></a></li>
-										<li><a href="https://www.youtube.com/channel/UCGL8V6uxNNMRrk3oZfVct1g" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-										<li><a href="https://www.linkedin.com/showcase/3686700/admin/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-										<li><a href="https://www.instagram.com/website_templates__/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-4">
-							<div class="widget widget_services">
-								<h5 class="footer-title">Our Links</h5>
-								<ul>
-									<li><a href="about-us.html">About us</a></li>
-									<li><a href="contact-us.html">Contact us</a></li>
-									<li><a href="privacy-policy.html">Privacy Policy</a></li>
-									<li><a href="#">Pricing Table</a></li>
-									<li><a href="faq.html">FAQ</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-xl-2 col-lg-3 col-sm-4 col-4">
-							<div class="widget widget_services">
-								<h5 class="footer-title">Book-Connect ?</h5>
-								<ul>
-									<li><a href="index.html">Book-Connect</a></li>
-									<li><a href="services.html">Services</a></li>
-									<li><a href="books-detail.html">Book Details</a></li>
-									<li><a href="blog-detail.html">Blog Details</a></li>
-									<li><a href="books-grid-view.html">Shop</a></li>
-								</ul>   
-							</div>
-						</div>
-						<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-4">
-							<div class="widget widget_services">
-								<h5 class="footer-title">Resources</h5>
-								<ul>
-									<li><a href="services.html">Download</a></li>
-									<li><a href="help-desk.html">Help Center</a></li>
-									<li><a href="shop-cart.html">Shop Cart</a></li>
-									<li><a href="shop-login.html">Login</a></li>
-									<li><a href="about-us.html">Partner</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
-							<div class="widget widget_getintuch">
-								<h5 class="footer-title">Get in Touch With Us</h5>
-								<ul>
-									<li>
-										<i class="flaticon-placeholder"></i>
-										<span>832  Thompson Drive, San Fransisco CA 94107,US</span>
-									</li>
-									<li>
-										<i class="flaticon-phone"></i>
-										<span>+123 345123 556<br>
-										+123 345123 556</span>
-									</li>
-									<li>
-										<i class="flaticon-email"></i> 
-										<span>support@Book-Connect.id<br>
-										info@Book-Connect.id</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Footer Top End -->
-			
-			<!-- Footer Bottom -->
-			<div class="footer-bottom">
-				<div class="container">
-					<div class="row fb-inner">
-						<div class="col-lg-6 col-md-12 text-start"> 
-							<p class="copyright-text">Book-Connect Book Store Ecommerce Website - © <span class="current-year">2024</span> All Rights Reserved</p>
-						</div>
-						<div class="col-lg-6 col-md-12 text-end"> 
-							<p>Made with <span class="heart"></span> by <a href="https://dexignzone.com/">DexignZone</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Footer Bottom End -->
-			
-		</footer>
-		<!-- Footer End -->
 	
-		<button class="scroltop" type="button"><i class="fas fa-arrow-up"></i></button>
+	<div class="page-content bg-grey">
+		<div class="container">
+            <div class="checkout-progress-bar">
+                <div class="progress-step active">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <span class="step-label">Cart</span>
+                </div>
+                <div class="progress-line active"></div>
+                <div class="progress-step active">
+                    <div class="step-icon">
+                        <i class="fas fa-address-card"></i>
+                    </div>
+                    <span class="step-label">Details</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <span class="step-label">Payment</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span class="step-label">Complete</span>
+                </div>
+            </div>
+            
+            <h1 class="checkout-page-title text-center">Checkout</h1>
+        </div>
+        
+        <section class="content-inner-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="checkout-container slide-up">
+                            <div class="checkout-header">
+                                <h5><i class="fas fa-address-card me-2"></i> Shipping Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="checkout-form">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="firstName" class="form-label">First Name</label>
+                                            <input type="text" class="form-control" id="firstName" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="lastName" class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="address" required>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="city" class="form-label">City</label>
+                                            <input type="text" class="form-control" id="city" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="postalCode" class="form-label">Postal Code</label>
+                                            <input type="text" class="form-control" id="postalCode" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="country" class="form-label">Country</label>
+                                        <select class="form-select" id="country" required>
+                                            <option value="">Select Country</option>
+                                            <option value="Ghana">Ghana</option>
+                                            <option value="Nigeria">Nigeria</option>
+                                            <option value="Kenya">Kenya</option>
+                                            <option value="South Africa">South Africa</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="sameAsBilling">
+                                        <label class="form-check-label" for="sameAsBilling">Billing address same as shipping</label>
+                                    </div>
+                                    
+                                    <div id="billing-address-container" class="d-none">
+                                        <h5 class="mt-4 mb-3">Billing Address</h5>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="billingFirstName" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="billingFirstName">
+                                            </div>  class="form-control" id="billingFirstName">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="billingLastName" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="billingLastName">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="billingAddress" class="form-label">Address</label>
+                                            <input type="text" class="form-control" id="billingAddress">
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="billingCity" class="form-label">City</label>
+                                                <input type="text" class="form-control" id="billingCity">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="billingPostalCode" class="form-label">Postal Code</label>
+                                                <input type="text" class="form-control" id="billingPostalCode">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="billingCountry" class="form-label">Country</label>
+                                            <select class="form-select" id="billingCountry">
+                                                <option value="">Select Country</option>
+                                                <option value="Ghana">Ghana</option>
+                                                <option value="Nigeria">Nigeria</option>
+                                                <option value="Kenya">Kenya</option>
+                                                <option value="South Africa">South Africa</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4">
+                                        <h5>Delivery Method</h5>
+                                        <div class="delivery-options">
+                                            <div class="delivery-option">
+                                                <input type="radio" name="deliveryMethod" id="standard" value="standard" checked>
+                                                <label for="standard">
+                                                    <div class="option-icon">
+                                                        <i class="fas fa-truck"></i>
+                                                    </div>
+                                                    <div class="option-details">
+                                                        <span class="option-name">Standard Delivery</span>
+                                                        <span class="option-price">₵5.00</span>
+                                                        <span class="option-time">3-5 business days</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="delivery-option">
+                                                <input type="radio" name="deliveryMethod" id="express" value="express">
+                                                <label for="express">
+                                                    <div class="option-icon">
+                                                        <i class="fas fa-shipping-fast"></i>
+                                                    </div>
+                                                    <div class="option-details">
+                                                        <span class="option-name">Express Delivery</span>
+                                                        <span class="option-price">₵15.00</span>
+                                                        <span class="option-time">1-2 business days</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="delivery-option">
+                                                <input type="radio" name="deliveryMethod" id="pickup" value="pickup">
+                                                <label for="pickup">
+                                                    <div class="option-icon">
+                                                        <i class="fas fa-store"></i>
+                                                    </div>
+                                                    <div class="option-details">
+                                                        <span class="option-name">Store Pickup</span>
+                                                        <span class="option-price">Free</span>
+                                                        <span class="option-time">Available today</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 d-flex justify-content-between">
+                                        <a href="shop-cart.html" class="btn btn-outline-primary">
+                                            <i class="fas fa-arrow-left me-2"></i> Back to Cart
+                                        </a>
+                                        <button type="button" id="proceed-to-payment" class="btn btn-primary">
+                                            Continue to Payment <i class="fas fa-arrow-right ms-2"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="checkout-container payment-container slide-up d-none">
+                            <div class="checkout-header">
+                                <h5><i class="fas fa-credit-card me-2"></i> Payment Method</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="payment-methods">
+                                    <div class="payment-method">
+                                        <input type="radio" name="paymentMethod" id="creditCard" value="creditCard" checked>
+                                        <label for="creditCard">
+                                            <div class="method-icon">
+                                                <i class="far fa-credit-card"></i>
+                                            </div>
+                                            <div class="method-details">
+                                                <span class="method-name">Credit/Debit Card</span>
+                                            </div>
+                                            <div class="method-cards">
+                                                <i class="fab fa-cc-visa"></i>
+                                                <i class="fab fa-cc-mastercard"></i>
+                                                <i class="fab fa-cc-amex"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="payment-method">
+                                        <input type="radio" name="paymentMethod" id="momo" value="momo">
+                                        <label for="momo">
+                                            <div class="method-icon">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                            <div class="method-details">
+                                                <span class="method-name">Mobile Money</span>
+                                            </div>
+                                            <div class="method-cards">
+                                                <span class="mobile-provider">MTN</span>
+                                                <span class="mobile-provider">Vodafone</span>
+                                                <span class="mobile-provider">AirtelTigo</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="payment-method">
+                                        <input type="radio" name="paymentMethod" id="paypal" value="paypal">
+                                        <label for="paypal">
+                                            <div class="method-icon">
+                                                <i class="fab fa-paypal"></i>
+                                            </div>
+                                            <div class="method-details">
+                                                <span class="method-name">PayPal</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div id="creditCardForm" class="payment-form">
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label for="cardName" class="form-label">Name on Card</label>
+                                            <input type="text" class="form-control" id="cardName" placeholder="John Doe">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="cardNumber" class="form-label">Card Number</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                            <span class="input-group-text">
+                                                <i class="far fa-credit-card"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="expiryDate" class="form-label">Expiry Date</label>
+                                            <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="cvv" class="form-label">CVV</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="cvv" placeholder="123">
+                                                <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" title="3-digit code on the back of your card">
+                                                    <i class="fas fa-question-circle"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="momoForm" class="payment-form d-none">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="momoProvider" class="form-label">Provider</label>
+                                            <select class="form-select" id="momoProvider">
+                                                <option value="">Select Provider</option>
+                                                <option value="mtn">MTN Mobile Money</option>
+                                                <option value="vodafone">Vodafone Cash</option>
+                                                <option value="airtel">AirtelTigo Money</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="momoNumber" class="form-label">Mobile Number</label>
+                                            <input type="tel" class="form-control" id="momoNumber" placeholder="0XX XXX XXXX">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="paypalForm" class="payment-form d-none">
+                                    <div class="paypal-info">
+                                        <p>You will be redirected to PayPal to complete your payment securely.</p>
+                                        <div class="paypal-logo text-center my-4">
+                                            <i class="fab fa-paypal fa-4x text-primary"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4 d-flex justify-content-between">
+                                    <button type="button" id="back-to-shipping" class="btn btn-outline-primary">
+                                        <i class="fas fa-arrow-left me-2"></i> Back to Shipping
+                                    </button>
+                                    <button type="button" id="place-order" class="btn btn-primary">
+                                        Place Order <i class="fas fa-check ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="checkout-container order-success-container slide-up d-none text-center py-5">
+                            <div class="success-animation">
+                                <div class="checkmark-circle">
+                                    <div class="checkmark draw"></div>
+                                </div>
+                            </div>
+                            <h2 class="mt-4">Order Placed Successfully!</h2>
+                            <p class="text-muted">Thank you for your purchase. Your order has been received.</p>
+                            <div class="order-details mt-4">
+                                <div class="order-number">
+                                    <span>Order Number:</span>
+                                    <strong id="order-number">BC-12345</strong>
+                                </div>
+                                <div class="order-date">
+                                    <span>Date:</span>
+                                    <strong id="order-date">May 15, 2023</strong>
+                                </div>
+                                <div class="order-email">
+                                    <span>Confirmation sent to:</span>
+                                    <strong id="order-email">user@example.com</strong>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <a href="index-home.html" class="btn btn-primary me-3">
+                                    <i class="fas fa-home me-2"></i> Back to Home
+                                </a>
+                                <a href="#" class="btn btn-outline-primary" id="view-order">
+                                    <i class="fas fa-file-alt me-2"></i> View Order
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="order-summary fade-in">
+                            <div class="summary-header">
+                                <h4>Order Summary</h4>
+                                <span class="item-count" id="summary-item-count">0 items</span>
+                            </div>
+                            
+                            <div class="summary-items" id="summary-items">
+                                <!-- Cart items will be loaded here via JavaScript -->
+                                <div class="empty-cart-message d-none">
+                                    <p class="text-center">Your cart is empty. <a href="books-grid-view.html">Continue shopping</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="summary-totals">
+                                <div class="summary-item">
+                                    <span>Subtotal</span>
+                                    <span id="summary-subtotal">₵0.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Shipping</span>
+                                    <span id="summary-shipping">₵5.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Tax</span>
+                                    <span id="summary-tax">₵0.00</span>
+                                </div>
+                                <div class="summary-item discount-item d-none">
+                                    <span>Discount</span>
+                                    <span id="summary-discount">-₵0.00</span>
+                                </div>
+                                <div class="summary-item summary-total">
+                                    <span>Total</span>
+                                    <span id="summary-total">₵5.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="promo-code-section">
+                                <div class="promo-toggle" id="promo-toggle">
+                                    <i class="fas fa-tag me-2"></i> Have a promo code?
+                                </div>
+                                <div class="promo-form d-none" id="promo-form">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Enter promo code" id="promo-code">
+                                        <button class="btn btn-outline-primary" type="button" id="apply-promo">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="secure-checkout">
+                                <div class="secure-icons">
+                                    <i class="fas fa-lock"></i>
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-amex"></i>
+                                    <i class="fab fa-paypal"></i>
+                                </div>
+                                <p>Secure Checkout</p>
+                            </div>
+                        </div>
+                        
+                        <div class="need-help-box mt-4">
+                            <h5><i class="fas fa-question-circle me-2"></i> Need Help?</h5>
+                            <p>Have questions about your order?</p>
+                            <a href="contact-us.html" class="btn btn-outline-primary btn-sm">Contact Support</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 	</div>
 	
+	<!-- Footer -->
+	<footer class="site-footer style-1">
+		<!-- Footer Category -->
+		<div class="footer-category">
+			<div class="container">
+				<div class="category-toggle">
+					<a href="javascript:void(0);" class="toggle-btn">Books categories</a>
+					<div class="toggle-items row book-grid-row">
+						<div class="footer-col-book">
+							<ul>
+								<li><a href="books-grid-view.html">Architecture</a></li>
+								<li><a href="books-grid-view.html">Art</a></li>
+								<li><a href="books-grid-view.html">Action</a></li>
+								<li><a href="books-grid-view.html">Biography</a></li>
+								<li><a href="books-grid-view.html">Body, Mind & Spirit</a></li>
+								<li><a href="books-grid-view.html">Business & Economics</a></li>
+								<li><a href="books-grid-view.html">Children Fiction</a></li>
+								<li><a href="books-grid-view.html">Children Non-Fiction</a></li>
+								<li><a href="books-grid-view.html">Comics & Graphics</a></li>
+								<li><a href="books-grid-view.html">Cooking</a></li>
+								<li><a href="books-grid-view.html">Crafts & Hobbies</a></li>
+								<li><a href="books-grid-view.html">Design</a></li>
+								<li><a href="books-grid-view.html">Drama</a></li>
+								<li><a href="books-grid-view.html">Education</a></li>
+								<li><a href="books-grid-view.html">Family & Relationships</a></li>
+								<li><a href="books-grid-view.html">Fiction</a></li>
+								<li><a href="books-grid-view.html">Foreign Language</a></li>
+								<li><a href="books-grid-view.html">Games</a></li>
+								<li><a href="books-grid-view.html">Gardening</a></li>
+								<li><a href="books-grid-view.html">Health & Fitness</a></li>
+								<li><a href="books-grid-view.html">History</a></li>
+								<li><a href="books-grid-view.html">House & Home</a></li>
+								<li><a href="books-grid-view.html">Humor</a></li>
+								<li><a href="books-grid-view.html">Literary Collections</a></li>
+								<li><a href="books-grid-view.html">Mathematics</a></li>
+								<li><a href="books-grid-view.html">Medical</a></li>
+								<li><a href="books-grid-view.html">Nature</a></li>
+								<li><a href="books-grid-view.html">Performing Arts</a></li>
+								<li><a href="books-grid-view.html">Pets</a></li>
+								<li><a href="books-grid-view.html">Show others</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer Category End -->
+		
+		<!-- Footer Top -->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-3 col-lg-12">
+						<div class="widget widget_about">
+							<div class="footer-logo logo-white">
+								<a href="index-home.html"><img src="images/logo.png" alt=""></a> 
+							</div>
+							<p class="text">BookConnect – Swap books, connect, and save! 🚀📚</p>
+							<div class="dz-social-icon style-1">
+								<ul>
+									<li><a href="#" target="_blank" ><i class="fa-brands fa-facebook-f"></i></a></li>
+									<li><a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+									<li><a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+									<li><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-4">
+						<div class="widget widget_services">
+							<h5 class="footer-title">Our Links</h5>
+							<ul>
+								<li><a href="index-home.html">Home</a></li>
+						<li><a href="books-grid-view.html">Browse Books </a></li>
+						<li><a href="about-us.html">About </a></li>
+						<li><a href="contact-us.html">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-3 col-sm-4 col-4">
+						<div class="widget widget_services">
+							<h5 class="footer-title">BookConnect</h5>
+							<ul>
+								<li><a href="how-it-works.html">How It Works</a></li>
+								<li><a href="#">Browse Books</a></li>
+								<li><a href="#">Community</a></li>
+							</ul>   
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-4">
+						<div class="widget widget_services">
+							<h5 class="footer-title">Resources</h5>
+							<ul>
+								<li><a href="help-desk.html">Help Center</a></li>
+								<li><a href="shop-cart.html">Shop Cart</a></li>
+								<li><a href="shop-login.html">Login</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+						<div class="widget widget_getintuch">
+							<h5 class="footer-title">Get in Touch With Us</h5>
+							<ul>
+								<li>
+									<i class="flaticon-placeholder"></i>
+									<span>KNUST - Kumasi</span>
+								</li>
+								<li>
+									<i class="flaticon-phone"></i>
+									<span>+233 540 0000</span>
+								</li>
+								<li>
+									<i class="flaticon-email"></i> 
+									<span>support@bookconnect.com<br>
+									info@bookconnect.com</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer Top End -->
+		
+		<!-- Footer Bottom -->
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row fb-inner">
+					<div class="col-lg-6 col-md-12 text-start"> 
+						<p class="copyright-text">BookConnect Book Store Ecommerce Website - © <span class="current-year">2025</span> All Rights Reserved</p>
+					</div>
+					<div class="col-lg-6 col-md-12 text-end"> 
+						<p>Made with <span class="heart"></span> by <a href="#">Group 15</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer Bottom End -->
+		
+	</footer>
+	<!-- Footer End -->
+	
+	<button class="scroltop" type="button"><i class="fas fa-arrow-up"></i></button>
+</div>
+
 <!-- JAVASCRIPT FILES ========================================= -->
 <script src="js/jquery.min.js"></script><!-- JQUERY MIN JS -->
 <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP MIN JS -->
 <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script><!-- BOOTSTRAP SELECT MIN JS -->
-<script src="js/dz.ajax.js"></script><!-- AJAX -->
+<script src="vendor/swiper/swiper-bundle.min.js"></script><!-- SWIPER JS -->
 <script src="js/custom.js"></script><!-- CUSTOM JS -->
 
+<script src="js/checkout.js"></script><!-- CHECKOUT JS -->
 
 </body>
-
-
 </html>
+
